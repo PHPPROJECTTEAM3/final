@@ -1,0 +1,53 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.headerform{
+    width: 30%;
+    margin: 20px auto 0px;
+    color: white;
+    background: #5F9EA0;
+    text-align: center;
+    border: 1px solid #B0C4DE;
+    border-bottom:none;
+    border-radius: 10px 10px 0px 0px;
+    padding: 20px;
+}
+.sign-in-html{
+    width: 30%;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #B0C4DE;
+    background: white;
+    border-radius: 0px 0px 10px 10px;
+}
+.sign-up-html{
+    width: 30%;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #B0C4DE;
+    background: white;
+    border-radius: 0px 0px 10px 10px;
+}
+.groupacc{
+    margin: 25px 0px 20px 30px;
+}
+
+.groupacc input{
+    height: 30px;
+    width: 93%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    boder:1px solid gray;
+}
+gruopacc label{
+    
+}
+.btnacc{
+    color: white;
+    background: #5F9EA0;
+    border:none;
+}
