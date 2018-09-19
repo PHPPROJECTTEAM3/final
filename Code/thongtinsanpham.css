@@ -1,0 +1,67 @@
+.buy_now {
+    display: block;
+    overflow: hidden;
+    padding: 7px 0;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: normal;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    background: #fd6e1d;
+    background: -webkit-gradient(linear,0% 0%,0% 100%,from(#fd6e1d),to(#f59000));
+    background: -webkit-linear-gradient(top,#f59000,#fd6e1d);
+    background: -moz-linear-gradient(top,#f59000,#fd6e1d);
+    background: -ms-linear-gradient(top,#f59000,#fd6e1d);
+    background: -o-linear-gradient(top,#f59000,#fd6e1d);
+}
+.price2{
+    display: inline-block;
+    font-size: 16px;
+    color: #c1000c;
+    }
+.policy {
+   display: block;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    padding-top: 10px;  
+}
+
+.policy li {
+    display: block;
+    overflow: hidden;
+    padding: 5px 0 5px 28px;
+    font-size: 14px;
+    color: #333;
+    line-height: 20px;
+    margin: 0 10px;
+    border-bottom: solid 1px #f0f0f0;
+    position: relative;
+}
+
+.policy .inpr:before {
+    content: '';
+    background: url(../Images/icon/if_guarantee_186270.png) 0 0 no-repeat;
+    width: 19px;
+    height: 16px;
+    background-size: 19px 16px;
+    position: absolute;
+    display: block;
+    top: 4px;
+    left: 0;
+}
+.policy .wrpr:before {
+    content: '';
+    background: url(../Images/icon/31_verified_product_approval_label_sticker_genuine_true_right-512.png) 2px 0 no-repeat;
+    width: 19px;
+    height: 23px;
+    background-size: 16px 23px;
+    position: absolute;
+    display: block;
+    top: 8px;
+    left: 0;
+}
+
