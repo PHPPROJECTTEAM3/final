@@ -55,18 +55,18 @@ if (mysqli_num_rows($result1) == 0) {
     <div class="row">
         <div class="slideqc" style="margin-top:0.5rem;">
 
-<?php while ($col1 = mysqli_fetch_array($result1)) { ?>
+            <?php while ($col1 = mysqli_fetch_array($result1)) { ?>
 
-                   <div class="slideshow-container">
-                        <div class="mySlides"> 
-                            <img width="100%" height="100%" src="<?php echo"../Images/$col1[img_adv]"; ?>">
+                <div class="slideshow-container">
+                    <div class="mySlides"> 
+                        <img width="100%" height="100%" src="<?php echo"../Images/$col1[img_adv]"; ?>">
 
-                        </div>
                     </div>
-<?php } ?>
+                </div>
+            <?php } ?>
 
 
-     </div>
+        </div>
     </div>
 </div>
 
@@ -132,7 +132,7 @@ if (mysqli_num_rows($result1) == 0) {
             </div>
         </div>
     </div>
-  
+
 </div>
 <!-- phan san pham-->
 
@@ -140,12 +140,11 @@ if (mysqli_num_rows($result1) == 0) {
     <div class="container">
         <div id="product_H" class="row">
             <!--                Hiện sản phẩm ở đây -->
-            
+
         </div>
         <h3 id="no_data" style="display: none">Không Có Sản Phẩm</h3>
-        <input id="xemthem" value="Xem Thêm" type="button">
-        <input id="xemthem_brand" value="Xem Thêm" type="button">
-      
+        <input id="xemthem" class="btn btn-primary" style="width: 20%; text-align: center; margin-left: 40%;" value="Xem Thêm" type="button">
+        <input id="xemthem_brand" class="btn btn-primary" style="width: 20%; text-align: center; margin-left: 40%;" value="Xem Thêm" type="button">
     </div>
 
 
@@ -196,9 +195,6 @@ include_once '../PRJ_Library/footer.html';
         }
         slides[slideIndex - 1].style.display = "block";
 
-
-
-
     }
     $('#buttonsearch').click(function () {
         $('#formsearch').slideToggle("fast", function () {
@@ -211,7 +207,7 @@ include_once '../PRJ_Library/footer.html';
 
 
 
-    
+
 
 
 </script>

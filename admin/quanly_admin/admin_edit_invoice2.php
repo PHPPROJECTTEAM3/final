@@ -36,14 +36,14 @@ if (isset($_GET["bt_edit_invoice"])) {
 
     if ($date_re == NULL) {
 
-        $query = "UPDATE `invoice` SET `ac_name`='$account',`note`='$note' ,`date_or`='$date_time_or',`es_date_re`='$es_date_re',`deposit`='$deposit',`status`='$status', `admin_comfirm` = '$admin_confirm',`Date_Re`= NULL WHERE `ID` = $id_invoice";
+        $query = "UPDATE `invoice` SET `ac_name`='$account',`note`='$note' ,`date_or`='$date_time_or',`es_date_re`='$es_date_re',`deposit`='$deposit',`status`='$status', `admin_confirm` = '$admin_confirm',`Date_Re`= NULL WHERE `ID` = $id_invoice";
         $result = mysqli_query($link, $query);
     } else {
-        $query = "UPDATE `invoice` SET `ac_name`='$account',`note`='$note' ,`date_or`='$date_time_or',`es_date_re`='$es_date_re',`deposit`='$deposit',`status`='$status', `admin_comfirm` = '$admin_confirm',`Date_Re`= '$date_re' WHERE `ID` = $id_invoice";
+        $query = "UPDATE `invoice` SET `ac_name`='$account',`note`='$note' ,`date_or`='$date_time_or',`es_date_re`='$es_date_re',`deposit`='$deposit',`status`='$status', `admin_confirm` = '$admin_confirm',`Date_Re`= '$date_re' WHERE `ID` = $id_invoice";
         $result = mysqli_query($link, $query);
     }
 
-
+echo $query;
     if ($result) {
         header("location:admin_manage_invoice.php");
         exit();
