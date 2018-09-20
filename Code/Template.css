@@ -214,7 +214,7 @@ input::-webkit-search-cancel-button {
     margin-top: 12px;
 }
 .search-form .form-group input.form-control {
-    padding-right: 20px;
+    padding-right: 70px;
     border: 0 none;
     background: transparent;
     box-shadow: none;

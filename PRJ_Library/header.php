@@ -650,7 +650,18 @@ include_once '../PRJ_Library/connect_DB.php';
                 });
 
 
-
+                $("#search").keyup(function () {
+                    var name_product = $(this).val();
+                    $.get("searchProduct.php", {name_pro: name_product}, function (data) {
+                        $("#myUL").html(data);
+                    });
+                });
+                 $("#hien").mouseover(function () {
+                     $("#myUL").css("display","block");
+                 });
+                  $("#hien").mouseout(function () {
+                     $("#myUL").css("display","none");
+                 });
             });
 
         </script>
@@ -666,9 +677,11 @@ include_once '../PRJ_Library/connect_DB.php';
                     <div class="col-sm-8">
                         <p>PHPMOBILE@GMAIL.COM - Hotline:1900 9090</p>
                     </div>
-                     <div class="col-sm-3 <?php if ($activeMenu == 'taikhoan') {
-    echo 'active';
-} ?>">
+                    <div class="col-sm-3 <?php
+                    if ($activeMenu == 'taikhoan') {
+                        echo 'active';
+                    }
+                    ?>">
 
                         <?php
                         if (isset($_SESSION["username"])) {
@@ -692,7 +705,7 @@ include_once '../PRJ_Library/connect_DB.php';
                             <?php
                         } else {
                             ?>
-                        <a href="dangnhap.php" style="color: white;">
+                            <a href="dangnhap.php" style="color: white;">
                                 <i class="glyphicon glyphicon-user" style="font-size: 18px; color:#f1f5f7 !important;"></i>
                                 <div style="padding-top: 4%; padding-left: 9%; color: white;  font-size: 14px;">
                                     Tài Khoản
@@ -708,9 +721,9 @@ include_once '../PRJ_Library/connect_DB.php';
 
 
                         <!--formloginuser-->
-                       
-                        
-                   
+
+
+
                     </div>
                 </div>
             </div>
@@ -767,27 +780,15 @@ include_once '../PRJ_Library/connect_DB.php';
                                     <div class="form-group has-feedback">
                                         <div id="hien">
                                             <label for="search" class="sr-only">Search</label> <!-- ??????????????????????????????????????? -->
-                                            <input type="text" class="form-control" name="search"  placeholder="search" id="myInput" oninput="myFunction()" title="Type in a name" >
+                                            <input type="text" class="form-control" id="search"  placeholder="search" id="myInput" oninput="myFunction()" title="Type in a name" >
                                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
                                             <ul id="myUL" >
-                                                <div id="hien2">
-                                                    <?php
-                                                    $queryH2 = "SELECT  `ID`,`name`,`name_brand`,`img` FROM `product` ORDER BY `L_Date` DESC";
-                                                    $resultH2 = mysqli_query($link, $queryH2);
-                                                    $queryH3 = "SELECT `name` FROM `brand`";
-                                                    $resultH3 = mysqli_query($link, $queryH3);
-                                                    $name_brand_H = NULL;
-                                                    while ($colH2 = mysqli_fetch_array($resultH2)) {
-                                                        echo "<li><a href='Thongtinsanpham.php?ID=$colH2[0]'>$colH2[1]<p style='display: none;'>$colH2[2]</p></a><img src='../../PHP_Team3_HK2/Images/$colH2[2]/$colH2[3]' width='50px'></li>";
-                                                    }
-                                                    ?>
-                                                </div>
+
                                             </ul>
                                         </div>
                                     </div>
                                 </form>
                             </li>
-
                             <li class="<?php
                             if ($activeMenu == 'cart') {
                                 echo 'active';

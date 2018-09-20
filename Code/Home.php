@@ -50,22 +50,22 @@ if (mysqli_num_rows($result1) == 0) {
 
 <!--Background-->
 
-<!--<div class="container">
+<div class="container" style="z-index: -1">
     <div class="row">
-        <div class="slideqc" style="margin-top:0.5rem;">
+        <div class="slideqc" style="margin-top:0.5rem;"><!--
 
 <?php while ($col1 = mysqli_fetch_array($result1)) { ?>
-                    <div class="slideshow-container">
+-->                    <div class="slideshow-container">
                         <div class="mySlides"> 
                             <img width="100%" height="100%" src="<?php echo"../Images/$col1[img_adv]"; ?>">
 
                         </div>
-                    </div>
+                    </div><!--
 <?php } ?>
 
-        </div>
+-->        </div>
     </div>
-</div>-->
+</div>
 
 <!-- phần danh mục -->
 
@@ -129,65 +129,7 @@ if (mysqli_num_rows($result1) == 0) {
             </div>
         </div>
     </div>
-    <?php
-//    $query = "SELECT * FROM `product` ORDER BY `L_Date` DESC";
-//------------------------------------------------
-//    if (isset($_SESSION["brand_pro"])) {
-//        if (isset($_GET["SPBC"])) {
-//            $query = "SELECT * FROM `product` WHERE `name_brand` like '" . $_SESSION["brand_pro"] . "' ORDER BY `a_s` DESC";
-//        }
-//      
-//        if (isset($_GET["duoi-2-trieu"])) {
-//            $query = "SELECT * FROM `product` WHERE `name_brand` like '" . $_SESSION["brand_pro"] . "' AND `price`< 2000000 ORDER BY `product`.`price` DESC";
-//        }
-//        if (isset($_GET["tu-2-4-trieu"])) {
-//            
-//        }
-//        if (isset($_GET["tu-4-7-trieu"])) {
-//           
-//        }
-//        if (isset($_GET["tu-7-13-trieu"])) {
-//            
-//        }
-//        if (isset($_GET["tren-13-trieu"])) {
-//            
-//        }
-//    }
-//---------------------------------------------------------------------
-//    if (!isset($_SESSION["brand_pro"])) {
-//        if (isset($_GET["SPBC"])) {
-//            $query = "SELECT * FROM `product` ORDER BY `a_s` DESC";
-//        }
-//        if (isset($_GET["GTD"])) {
-//            
-//        }
-//        if (isset($_GET["GGD"])) {
-//           
-//        }
-//        if (isset($_GET["duoi-2-trieu"])) {
-//            
-//        }
-//        if (isset($_GET["tu-2-4-trieu"])) {
-//           
-//        }
-//        if (isset($_GET["tu-4-7-trieu"])) {
-//           
-//        }
-//        if (isset($_GET["tu-7-13-trieu"])) {
-//           
-//        }
-//        if (isset($_GET["tren-13-trieu"])) {
-//            
-//        }
-//    }
-//    if (isset($_GET["ALL"])) {
-//        unset($_SESSION["brand_pro"]);
-//    }
-//    $result = mysqli_query($link, $query);
-//    if (mysqli_num_rows($result) == 0) {
-//        echo "Không Có Sản Phẩm";  //// Error----------------------------------------------
-//    } else {
-    ?>
+  
 </div>
 <!-- phan san pham-->
 
@@ -266,45 +208,7 @@ include_once '../PRJ_Library/footer.html';
 
 
 
-    document.getElementById("hien").addEventListener("mouseover", mouseOver);
-    document.getElementById("hien").addEventListener("mouseout", mouseOut);
-    function mouseOut() {
-        document.getElementById("hien2").style.display = 'none';
-    }
-    function mouseOver() {
-        document.getElementById("hien2").style.display = 'block';
-    }
-    function myFunction() {
-        var input, filter, ul, li, a, i, hienn;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        ul = document.getElementById("myUL");
-        li = ul.getElementsByTagName("li");
-        b = input.value.length;
-        hienn = document.getElementById("hien2");
-        if (b == 0) {
-            hienn.style.display = "none";
-        }
-        if (b >= 2)
-        {
-            hienn.style.display = "block";
-        }
-        for (i = 0; i < li.length; i++) {
-
-            a = li[i].getElementsByTagName("a")[0];
-            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                li[i].style.display = "block";
-            } else {
-                li[i].style.display = "none";
-            }
-        }
-    }
-    function Reset_clear()
-    {
-        document.getElementById("myInput").value = '';
-        myFunction().reset();
-
-    }
+    
 
 
 </script>

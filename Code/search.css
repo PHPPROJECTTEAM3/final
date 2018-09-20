@@ -1,34 +1,38 @@
 /*---------Hien----------------------------------------------------------------*/
-#myUL_H{
+#myUL{
     list-style-type: none;
                 padding: 0;
                 margin: 0;
-              
+   z-index:  2;
+   position: absolute;
    
  
 }
-#hien2
-{
-      display: none; 
-    height: 190px;
-    overflow: hidden;
-   
-}
-#myUL_H li a {
+
+#myUL li a {
     border: 1px solid #ddd;
                 margin-top: -1px; /* Prevent double borders */
-                background-color: #f6f6f6;
+                background-color: #FFF;
                 padding: 12px;
+                padding-right: 150px;
+                width:100%;
+                height:100px;
                 text-decoration: none;
-                font-size: 18px;
+                font-size: 12px;
                 color: black;
                 display: block;
 }
-#myUL_H li{
+#myUL li a p{
+    margin-top: -36%;
+    margin-left: 60%;
+    width: 100%;
+}
+
+#myUL li{
 
 }
 
-#myUL_H li a:hover:not(.header) {
+#myUL li a:hover:not(.header) {
       background-color: #eee;
 }
 /*----------Hien --------------------------------------*/

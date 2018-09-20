@@ -230,6 +230,13 @@ if (isset($_GET["check_DatHang"])) {
         </script>
         <?php
     }   
+     if ($_GET["check_DatHang"] == 9) {
+        ?>
+        <script>
+            alert('Đặt Hàng Thất Bại !!!\n\Hôm Nay Bạn Đã Hủy Đơn Hàng Hơn 3 Lần, Vui Lòng Chờ Đến Ngày Mai Để Tiếp Tục Đặt Hàng Online\n\Hoặc Bạn Có Thể Đến Cửa Hàng Của PHPMobile Để Mua Hàng Trực Tiếp.');          
+        </script>
+        <?php
+    }   
      
 }
 ?>

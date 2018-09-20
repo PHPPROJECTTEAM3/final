@@ -45,7 +45,6 @@ $query = "SELECT * FROM `product`";
         });
         $("#name_search").keyup(function () {
             var name_search = $(this).val();
-
             $.get("admin_search_product.php", {name_search: name_search}, function (data) {
                 $("#myTable").html(data);
             });
