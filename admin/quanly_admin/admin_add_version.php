@@ -1,6 +1,5 @@
 <?php
 include_once './HeaderAdmin.php';
-session_start();
 ?>
 
         <h2>Add Versions</h2>

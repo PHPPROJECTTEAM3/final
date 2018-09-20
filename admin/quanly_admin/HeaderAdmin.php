@@ -1,3 +1,6 @@
+<?php
+include_once '../../PRJ_Library/connect_DB.php';
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -23,7 +26,7 @@ and open the template in the editor.
         <link href="AdminLTE.min.css" rel="stylesheet" type="text/css"/>
         <link href="Templateadmin.css" rel="stylesheet" type="text/css"/>
         <link href="_all-skins.min.css" rel="stylesheet" type="text/css"/>
-        
+
         <link href="../blue/style2.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="../../Lib_/jquery-3.3.1.min.js" type="text/javascript"></script>
@@ -34,7 +37,7 @@ and open the template in the editor.
         <script src="jquery.tablesorter.js" type="text/javascript"></script>
         <link href="blue/style.css" rel="stylesheet" type="text/css"/>
         <link href="blue/style2.css" rel="stylesheet" type="text/css"/>
-        
+
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
 
@@ -75,7 +78,40 @@ and open the template in the editor.
                             <li class="">
                                 <a href="Addproduct.php">Sản Phẩm</a>
                             </li>
-                       
+                            <li class="">
+                                <a href="admin_manage_feedback.php">Feedback</a>     
+                                <div style="
+                                     display: inline-block;
+                                     min-width: 9px;
+                                     padding: 4px 4px;
+                                     font-size: 10px;
+                                     font-weight: 400;
+                                     line-height: 1;
+                                     color: #fff;
+                                     text-align: center;
+                                     white-space: nowrap;
+                                     vertical-align: middle;
+                                     background-color: #09afdf;
+                                     border-radius: 7px;
+                                     margin-left: 35%;
+                                     margin-top: -30%;
+                                     ">
+                                         <?php
+                                         $count = 0;
+                                         $sql7 = "SELECT * from feed_back ";
+                                         $result7 = mysqli_query($link, $sql7);
+                                         $row7 = mysqli_fetch_array($result7);
+                                         while ($row7 = mysqli_fetch_array($result7)) {
+                                             if ($row7[5] == NULL) {
+                                                 $count++;
+                                             } else {
+                                                 continue;
+                                             }
+                                         }
+                                         echo $count;
+                                         ?>
+                                </div>
+                            </li>
                         </ul>
                     </li>
                 </ul>

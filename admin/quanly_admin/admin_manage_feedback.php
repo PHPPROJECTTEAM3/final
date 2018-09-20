@@ -1,10 +1,6 @@
 <?php
 session_start();
-if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
-    header("location:../admin_log_in.php");
-    exit();
-}
-
+include_once '../quanly_admin/HeaderAdmin.php';
 include_once '../../PRJ_Library/connect_DB.php';
 $query = "SELECT * FROM `feed_back` ORDER BY `con_rep`";
 $result = mysqli_query($link, $query);
@@ -12,10 +8,10 @@ $result = mysqli_query($link, $query);
 <h2>Feedback List</h2>
 <div style="overflow: hidden">
     <div style="float: left"> 
-        <a href="../product/admin_manage_product.php" style="text-decoration: none" >Back to Manage Product</a>
+        <a href="Addproduct.php" style="text-decoration: none" >Back to Manage Product</a>
     </div>
     <div style="float: right; margin-right: 20px">
-        <a href="../admin_log_out.php" style="text-decoration: none;">Log Out</a>
+        <a href="admin_log_out.php" style="text-decoration: none;">Log Out</a>
     </div> 
 </div>
 <hr/>   

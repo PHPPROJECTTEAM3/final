@@ -1,6 +1,6 @@
 <?php
 include_once './HeaderAdmin.php';
-session_start();
+
 ?>
 
         <h2>Add Brand</h2><hr/>
