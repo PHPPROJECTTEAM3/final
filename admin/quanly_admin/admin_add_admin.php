@@ -24,8 +24,11 @@ include_once './HeaderAdmin.php';
                 <input id = "password" name="password" type="password" class="input" data-type="password" placeholder="Mật Khẩu"> 
             </div>
             <div class="groupacc">
-
-                <input id = "role" name="role" type="number" class="input" placeholder="Quyền Truy Cập">
+                <select name="role" id="role">
+                    <option>Quyền Truy Cập</option>
+                    <option value="1">Master</option>
+                    <option value="2">Staff</option>
+                </select>
             </div>
 
 
