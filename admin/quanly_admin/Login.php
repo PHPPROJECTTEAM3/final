@@ -9,7 +9,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     </head>
     <body style="background-color: #FFFF;">
-        <img width="20%" style="margin-top: 1%; margin-left: 39%;" src="../../Images/logophpmobile.jpg">
+        <img width="20%" style="margin-top: 1%; margin-left: 39%;" src="../../Images/phpmobile.jpg">
 <div style="margin-bottom: 5%;">	
                             <div class="headerform">
                                 

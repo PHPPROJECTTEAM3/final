@@ -73,7 +73,7 @@ $col = mysqli_fetch_array($result);
     <p>Admin Comfirm: <select name="admin_confirm">
 
             <?php
-            $query2 = "SELECT `id` FROM `admin`";
+            $query2 = "SELECT `acc` FROM `admin`";
             $result2 = mysqli_query($link, $query2);
             $num2 = mysqli_num_rows($result2);
             if ($num2 == 0) {

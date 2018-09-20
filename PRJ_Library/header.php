@@ -31,7 +31,7 @@ include_once '../PRJ_Library/connect_DB.php';
 //-------Ajax
             $(document).ready(function () {
                 // phần đầu tiên
-                $("#xemthem_brand").css("display", "none")
+                $("#xemthem_brand").css("display", "none");
                 $.get("../Xuly/San_Pham.php", {page: 1}, function (data) {
                     $("#product_H").html(data);
                     if (data.length == 0)
@@ -58,6 +58,36 @@ include_once '../PRJ_Library/connect_DB.php';
 
                     });
 
+                });
+
+
+                $("#ALL").click(function () {
+                    $("#xemthem_brand").css("display", "none");
+                    $.get("../Xuly/San_Pham.php", {page: 1}, function (data) {
+                        $("#product_H").html(data);
+                        if (data.length == 0)
+                        {
+                            $("#no_data").css("display", "block");
+                            $("#xemthem").css("display", "none");
+                        } else {
+                            $("#no_data").css("display", "none");
+                            $("#xemthem").css("display", "block");
+                        }
+                    });
+
+                    var page_H = 1;
+                    $("#xemthem").click(function () {
+                        page_H += 1;
+                        $.get("../Xuly/San_Pham.php", {page: 1}, function (data) {
+                        $("#product_H").html(data);
+                            if (data.length == 0)
+                            {
+                                $("#xemthem").css("display", "none");
+                            } else {
+                                $("#xemthem").css("display", "block");
+                            }
+                        });
+                    });
                 });
             });
 
@@ -656,12 +686,12 @@ include_once '../PRJ_Library/connect_DB.php';
                         $("#myUL").html(data);
                     });
                 });
-                 $("#hien").mouseover(function () {
-                     $("#myUL").css("display","block");
-                 });
-                  $("#hien").mouseout(function () {
-                     $("#myUL").css("display","none");
-                 });
+                $("#hien").mouseover(function () {
+                    $("#myUL").css("display", "block");
+                });
+                $("#hien").mouseout(function () {
+                    $("#myUL").css("display", "none");
+                });
             });
 
         </script>
@@ -780,7 +810,7 @@ include_once '../PRJ_Library/connect_DB.php';
                                     <div class="form-group has-feedback">
                                         <div id="hien">
                                             <label for="search" class="sr-only">Search</label> <!-- ??????????????????????????????????????? -->
-                                            <input type="text" class="form-control" id="search"  placeholder="search" id="myInput" oninput="myFunction()" title="Type in a name" >
+                                            <input type="text" autocomplete="off" class="form-control" id="search"  placeholder="search" id="myInput" oninput="myFunction()" title="Type in a name" >
                                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
                                             <ul id="myUL" >
 
