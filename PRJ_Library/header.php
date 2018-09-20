@@ -731,7 +731,7 @@ include_once '../PRJ_Library/connect_DB.php';
                         </button>
                         <a href="Home.php" class="navbar-logo">
                             <img style="height: 50px; display: inline-block;"
-                                 src="../Images/logophpmobile.jpg" usemap="#Map" border="0">
+                                 src="../Images/phpmobile.jpg" usemap="#Map" border="0">
                         </a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

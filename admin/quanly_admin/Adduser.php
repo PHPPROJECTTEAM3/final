@@ -8,7 +8,6 @@ include_once '../../PRJ_Library/connect_DB.php';
 include_once '../quanly_admin/HeaderAdmin.php';
 $activeMenu = "";
 
-
 ?>
 <form method="GET">
 <h2>Admin List</h2>
@@ -39,7 +38,7 @@ $activeMenu = "";
                     <th style="width: 20%">Account Name</th>
                    
                     <th style="width: 20%">Role</th>
-                    <th colspan="2" style="text-align: center">...</th>
+                    <th colspan="2" style="text-align: center">Action</th>
                 </tr>
                 <?php
                 $query = "SELECT * FROM `admin`";

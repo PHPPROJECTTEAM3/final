@@ -85,7 +85,7 @@ and open the template in the editor.
                             <li class="">
                                 <a href="Addproduct.php">Sản Phẩm</a>
                             </li>
-                            <li class="">
+<!--                            <li class="">
                                 <a href="admin_manage_feedback.php">Feedback</a>     
                                 <div style="
                                      display: inline-block;
@@ -104,21 +104,21 @@ and open the template in the editor.
                                      margin-top: -30%;
                                      ">
                                          <?php
-                                         $count = 0;
-                                         $sql7 = "SELECT * from feed_back ";
-                                         $result7 = mysqli_query($link, $sql7);
-                                         
-                                         while ($row7 = mysqli_num_rows($result7)) {
-                                             if ($row7[5] == NULL) {
-                                                 $count++;
-                                             } else {
-                                                 continue;
-                                             }
-                                         }
-                                         echo $count;
+//                                         $count = 0;
+//                                         $sql7 = "SELECT * from feed_back ";
+//                                         $result7 = mysqli_query($link, $sql7);
+//                                         $row7 = mysqli_fetch_array($result7);
+//                                         while ($row7 = mysqli_num_rows($result7)) {
+//                                             if ($row7[5] == NULL) {
+//                                                 $count++;
+//                                             } else {
+//                                                 continue;
+//                                             }
+//                                         }
+//                                         echo $count;
                                          ?>
                                 </div>
-                            </li>
+                            </li>-->
                         </ul>
                     </li>
                 </ul>
