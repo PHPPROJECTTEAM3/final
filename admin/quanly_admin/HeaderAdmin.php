@@ -4,7 +4,7 @@ if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
     header("location:Login.php");
     exit();
 }
-  include_once '../../PRJ_Library/connect_DB.php';
+include_once '../../PRJ_Library/connect_DB.php';
 ?>
 <!DOCTYPE html>
 <!--
@@ -74,10 +74,10 @@ and open the template in the editor.
                                 <a href="pageadmin.php">Sơ đồ thống kê </a>
 
                             </li>
-                               <?php if($_SESSION['role']==1){ ?>
-                            <li class="">
-                                <a href="Adduser.php">Thêm admin</a>
-                            </li>
+                            <?php if ($_SESSION['role'] == 1) { ?>
+                                <li class="">
+                                    <a href="Adduser.php">Thêm admin</a>
+                                </li>
                             <?php } ?>
                             <li class="">
                                 <a href="Addmember.php">Member</a>
@@ -105,17 +105,10 @@ and open the template in the editor.
                                      ">
                                          <?php
                                          $count = 0;
-                                         $sql7 = "SELECT * from feed_back ";
+                                         $sql7 = "SELECT COUNT(id) AS NumberOfFeedback FROM feed_back WHERE con_rep IS NULL";
                                          $result7 = mysqli_query($link, $sql7);
-                                         $row7 = mysqli_fetch_array($result7);
-                                         while ($row7 = mysqli_num_rows($result7)) {
-                                             if ($row7[5] == NULL) {
-                                                 $count++;
-                                             } else {
-                                                 continue;
-                                             }
-                                         }
-                                         echo $count;
+                                         $rowcount=mysqli_num_rows($result7);
+                                         echo $rowcount;
                                          ?>
                                 </div>
                             </li>
