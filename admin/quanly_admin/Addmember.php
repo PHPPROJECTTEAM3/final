@@ -20,7 +20,7 @@ if($num == 0)
 }
 ?>
 
-<form method="GET">
+
 <h2>Member List</h2>
              <div>
                 <div style="float: left">                   
@@ -31,20 +31,26 @@ if($num == 0)
                 
             </div>
             <hr/> 
-</form>            
-                        <?php
-    if(isset($_GET["bt_log_out"]))
-    {
-        unset($_SESSION["admin"]);
-        header("location:Login.php");
-        mysqli_close($link);
-        exit();
-    }
-    
-    ?>
+           
+                       
+<form>
+            <p>
+                
+                Account: <input id="name_member" type="text" style="margin-right: 10px"</p>
+                <input class="btn btn-default" name="bt_refesh" type="submit" value="Refesh" style="margin-right: 50px">
+        </form>
+      <?php
+     
+        if (isset($_GET["bt_refesh"])) {
+            header("location:Addmember.php");
+            mysqli_close($link);
+            exit();
+        }
+        ?>
 
   
-            <table border="1">
+<center><table id="myTable" class="tablesorter" style="width: 80%">
+                <thead>
                 <tr>
                     <th style="width: 2%">id</th>
                     <th style="width: 12%">Account Name</th>                   
@@ -57,6 +63,8 @@ if($num == 0)
                     <th style="width: 7%">Reliability</th>
                     <th style="width: 8%"colspan="2">Action</th>
                 </tr>
+                </thead>
+                <tbody>
                 <?php 
                 while ($col = mysqli_fetch_array($result))
                 {
@@ -75,4 +83,24 @@ if($num == 0)
                     echo '</tr>';
                 }
                 ?>
-            </table>
+          </tbody></table></center>
+<script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#myTable").tablesorter();
+            
+            $("#name_member").keyup(function () {
+                    var member_search = $(this).val();
+                    $.get("admin_search_member.php", {member_search: member_search}, function (data) {
+                        $("#myTable").html(data);
+                    });
+                });
+
+        });
+    </script>
+    <?php
+
+    exit();
+    ?>
+</body>
+</html>
