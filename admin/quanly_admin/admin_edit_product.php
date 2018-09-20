@@ -1,4 +1,10 @@
 <?php 
+session_start();
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
+
 include_once './HeaderAdmin.php';
 if(!(isset($_GET["id"])))
 {
@@ -44,8 +50,8 @@ $current_id = $row[0];
         
         <form method="GET" action="edit_pro.php">
             <input type="hidden" name="current_ID" value="<?php echo $current_id ?>" readonly="">
-            <p>ID</p>
-            <input name="id_pro" value="<?php echo $row[0] ?>" required> 
+            <p>ID:
+            <?php echo $row[0] ?></p>
             <p>Product Name</p>
             <input name="name_pro" type="text" maxlength="50" value="<?php echo $row[1] ?>" required>
             <p>Brand Name</p>

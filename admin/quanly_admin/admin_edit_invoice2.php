@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
 if (isset($_GET["bt_edit_invoice"])) {
     include_once '../../PRJ_Library/connect_DB.php';
     $id_invoice = $_GET["id_invoice"];

@@ -1,9 +1,12 @@
 <?php
-ob_start();
 session_start();
-include_once '../quanly_admin/HeaderAdmin.php';
-$activeMenu = "addadmin";
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
 include_once '../../PRJ_Library/connect_DB.php';
+include_once '../quanly_admin/HeaderAdmin.php';
+$activeMenu = "";
 
 ?>
 <form method="GET">
@@ -12,7 +15,7 @@ include_once '../../PRJ_Library/connect_DB.php';
                 <div style="float: left">                   
             </div>
                 <div style="float: right; margin-right: 10px; margin-top: -9%;">
-                    <button name="bt_log_out">Log Out</button>
+                    <a href="admin_log_out.php" style="text-decoration: none;">Log Out</a>
                     </div> 
                 
             </div>
@@ -35,7 +38,7 @@ include_once '../../PRJ_Library/connect_DB.php';
                     <th style="width: 20%">Account Name</th>
                    
                     <th style="width: 20%">Role</th>
-                    <th colspan="2" style="text-align: center">...</th>
+                    <th colspan="2" style="text-align: center">Action</th>
                 </tr>
                 <?php
                 $query = "SELECT * FROM `admin`";

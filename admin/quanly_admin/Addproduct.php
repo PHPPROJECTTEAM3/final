@@ -1,9 +1,10 @@
 <?php
-ob_start();
-include_once './HeaderAdmin.php';
 session_start();
-
-
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
+include_once './HeaderAdmin.php';
 include_once '../../PRJ_Library/connect_DB.php';
 $query = "SELECT * FROM `product`";
 ?>
@@ -13,7 +14,7 @@ $query = "SELECT * FROM `product`";
     <div style="float: left"> 
 
     </div>
-    <div style="float: right; margin-right: 20px">
+    <div style="float: right; margin-right: 10px; margin-top: -9%;">
         <a href="admin_log_out.php" style="text-decoration: none;">Log Out</a>
     </div> 
 </div>

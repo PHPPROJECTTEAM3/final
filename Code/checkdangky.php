@@ -19,7 +19,7 @@
 		exit();
 	} else {
            // Nếu thông tin đăng nhập sai, trả về giá trị là 0
-            echo $Date; 
+            echo 0; 
         }
  
 	

@@ -1,8 +1,22 @@
 <?php
+session_start();
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
+
 include_once '../quanly_admin/HeaderAdmin.php';
 $activeMenu = "sodo";
 
 ?>
+<div style="overflow: hidden">
+    <div style="float: left"> 
+        <h2>Sơ Đồ Thống Kê 2018</h2>
+    </div>
+    <div style="float: right; margin-right: 20px">
+        <a href="admin_log_out.php" style="text-decoration: none;">Log Out</a>
+    </div> 
+</div>
        <div id="chartMember" style="height: 370px; width: 100%; margin-top: 1%;margin-bottom: 3%;"></div>
     <div id="chartProduct" style="height: 370px; width: 100%; margin-bottom: 3%;"></div>
     <div id="chartContainer2" style="height: 370px; width: 100%;"></div>

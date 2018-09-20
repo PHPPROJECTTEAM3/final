@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
 include_once './HeaderAdmin.php';
 date_default_timezone_set("Asia/Ho_Chi_Minh");
 include_once '../../PRJ_Library/connect_DB.php';

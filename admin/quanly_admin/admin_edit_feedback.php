@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
+include_once './HeaderAdmin.php';
 if(!(isset($_GET["id"])))
 {
     header("location:admin_manage_feedback.php");
@@ -28,7 +33,7 @@ $row = mysqli_fetch_array($result);
                     <a href="admin_manage_feedback.php" style="text-decoration: none" >Back </a>
             </div>
                 <div style="float: right; margin-right: 20px">
-                    <a href="../admin_log_out.php" style="text-decoration: none;">Log Out</a>
+                    
                 </div> 
             </div>
             <hr/>   
@@ -53,9 +58,16 @@ $row = mysqli_fetch_array($result);
                     <?php
                     while ($row1 = mysqli_fetch_array($result2))
                     {
-                        echo "<option value='$row1[0]' >$row1[0]</option>";
+                        echo "<option value='$row1[1]' >$row1[1]</option>";
                     }
                     ?>
                 </select>
+            <div>
+            <?php 
+            $query7 = "select mail from member where acc like '$row[1]'";
+            $result7 = mysqli_query($link, $query7);
+            $col7 = mysqli_fetch_array($result7);
+            ?>
+                <a href="mailto:<?php echo $col7[0] ?>?Subject=Hello" target="_blank"><strong style="position: absolute; margin-left: 49%;margin-top: -8%">Mail</strong></a> </div>
             <p><input name="bt_edit" type="submit" value="Edit"></p>
         </form>

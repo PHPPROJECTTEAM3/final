@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
 include_once './HeaderAdmin.php';
  $id = 0;
 if(isset($_GET["id"]))

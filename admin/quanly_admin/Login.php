@@ -4,14 +4,14 @@
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
-        <link href="" rel="stylesheet" type="text/css"/>
-
+        
+        <link href="dangkydangnhap_admin.css" rel="stylesheet" type="text/css"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     </head>
     <body style="background-color: #FFFF;">
         <img width="20%" style="margin-top: 1%; margin-left: 39%;" src="../../Images/logophpmobile.jpg">
 <div style="margin-bottom: 5%;">	
-                            <div class="header">
+                            <div class="headerform">
                                 
                                 <h2>Đăng Nhập</h2>
                                 </div>
@@ -33,7 +33,6 @@
 			</div>
                                 
     </div>	
-
 
 
 <script type="text/javascript">

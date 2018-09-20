@@ -51,19 +51,22 @@ if (mysqli_num_rows($result1) == 0) {
 <!--Background-->
 
 <div class="container" style="z-index: -1">
+
     <div class="row">
-        <div class="slideqc" style="margin-top:0.5rem;"><!--
+        <div class="slideqc" style="margin-top:0.5rem;">
 
 <?php while ($col1 = mysqli_fetch_array($result1)) { ?>
--->                    <div class="slideshow-container">
+
+                   <div class="slideshow-container">
                         <div class="mySlides"> 
                             <img width="100%" height="100%" src="<?php echo"../Images/$col1[img_adv]"; ?>">
 
                         </div>
-                    </div><!--
+                    </div>
 <?php } ?>
 
--->        </div>
+
+     </div>
     </div>
 </div>
 

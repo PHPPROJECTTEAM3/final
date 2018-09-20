@@ -1,5 +1,10 @@
 <?php
-
+session_start();
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
+include_once './HeaderAdmin.php';
 if (!isset($_GET["id"])) {
     if (!isset($_SESSION["invoice"])) {
         header("location:admin_manage_invoice.php");

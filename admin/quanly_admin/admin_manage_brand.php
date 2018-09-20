@@ -1,8 +1,10 @@
 <?php
-ob_start();
-include_once '../../PRJ_Library/connect_DB.php';
-include_once './HeaderAdmin.php';
 session_start();
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
+include_once '../../PRJ_Library/connect_DB.php';
 include_once './HeaderAdmin.php';
 $query = "SELECT * FROM `brand`";
 $result = mysqli_query($link, $query);
