@@ -87,37 +87,7 @@ and open the template in the editor.
                             </li>
                             <li class="">
                                 <a href="admin_manage_feedback.php">Feedback</a>     
-                                <div style="
-                                     display: inline-block;
-                                     min-width: 9px;
-                                     padding: 4px 4px;
-                                     font-size: 10px;
-                                     font-weight: 400;
-                                     line-height: 1;
-                                     color: #fff;
-                                     text-align: center;
-                                     white-space: nowrap;
-                                     vertical-align: middle;
-                                     background-color: #09afdf;
-                                     border-radius: 7px;
-                                     margin-left: 35%;
-                                     margin-top: -30%;
-                                     ">
-                                         <?php
-                                         $count = 0;
-                                         $sql7 = "SELECT * from feed_back ";
-                                         $result7 = mysqli_query($link, $sql7);
-                                         
-                                         while ($row7 = mysqli_num_rows($result7)) {
-                                             if ($row7[5] == NULL) {
-                                                 $count++;
-                                             } else {
-                                                 continue;
-                                             }
-                                         }
-                                         echo $count;
-                                         ?>
-                                </div>
+                               
                             </li>
                         </ul>
                     </li>
