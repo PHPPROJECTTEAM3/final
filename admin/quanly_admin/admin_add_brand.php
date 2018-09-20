@@ -1,15 +1,8 @@
-    <?php
-session_start();
+<?php
 include_once './HeaderAdmin.php';
+session_start();
 ?>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-          <link href="../blue/style2.css" rel="stylesheet" type="text/css"/>
-    </head>
-    <body class="margin5px">
+
         <h2>Add Brand</h2><hr/>
         <form>
             <p>Name Brand</p>

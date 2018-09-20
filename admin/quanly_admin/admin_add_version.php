@@ -1,15 +1,8 @@
 <?php
-session_start();
 include_once './HeaderAdmin.php';
+session_start();
 ?>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-         <link href="../blue/style2.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    </head>
-    <body class="margin5px">
+
         <h2>Add Versions</h2>
         <p><a href="admin_manage_version.php">Back to Manage Versions</a></p><hr/>
         <form>

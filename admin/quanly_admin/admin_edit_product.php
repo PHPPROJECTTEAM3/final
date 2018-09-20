@@ -1,4 +1,5 @@
 <?php 
+include_once './HeaderAdmin.php';
 if(!(isset($_GET["id"])))
 {
     header("location:Addproduct.php");
@@ -29,14 +30,6 @@ if (mysqli_num_rows($result3) == 0) {
 }
 $current_id = $row[0];
 ?>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-         <link href="../blue/style2.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    </head>
-    <body class="margin5px">
         <h2>Edit Product ID: <?php echo $id ?></h2>
 <div style="overflow: hidden">
     <div style="float: left"> 

@@ -666,18 +666,16 @@ include_once '../PRJ_Library/connect_DB.php';
                     <div class="col-sm-8">
                         <p>PHPMOBILE@GMAIL.COM - Hotline:1900 9090</p>
                     </div>
-                    <div class="col-sm-3 <?php
-                    if ($activeMenu == 'taikhoan') {
-                        echo 'active';
-                    }
-                    ?>">
+                     <div class="col-sm-3 <?php if ($activeMenu == 'taikhoan') {
+    echo 'active';
+} ?>">
 
                         <?php
                         if (isset($_SESSION["username"])) {
                             ?>
                             <div id="logout" style="padding-top: 4%;">
-                                <i class="glyphicon glyphicon-user" style="font-size: 18px;"></i>
-                                <a href="quanlytaikhoan.php" style="padding-left: 8%; color: white;">
+                                <i class="glyphicon glyphicon-user" style="font-size: 18px; color:#f1f5f7 !important;"></i>
+                                <a href="quanlytaikhoan.php" style="padding-left: 8%; color: white;  font-size: 14px;">
                                     <?php
                                     echo "Chào " . $_SESSION["username"];
                                     ?>
@@ -688,18 +686,18 @@ include_once '../PRJ_Library/connect_DB.php';
                                     echo "|"
                                     ?>
                                 </a>
-                                <a id="bt_logout" name="bt_logout" href="log_out_user.php" style="padding-left: 1%; color: white;">Đăng Xuất</a>
+                                <a id="bt_logout" name="bt_logout" href="log_out_user.php" style="padding-left: 1%; color: white; font-size: 14px;">Đăng Xuất</a>
 
                             </div>
                             <?php
                         } else {
                             ?>
-                            <div href="" onclick="document.getElementById('modal-wrapper').style.display = 'block'">
-                                <i class="glyphicon glyphicon-user" style="font-size: 18px;"></i>
-                                <div style="padding-top: 4%; padding-left: 9%; color: white;">
+                        <a href="dangnhap.php" style="color: white;">
+                                <i class="glyphicon glyphicon-user" style="font-size: 18px; color:#f1f5f7 !important;"></i>
+                                <div style="padding-top: 4%; padding-left: 9%; color: white;  font-size: 14px;">
                                     Tài Khoản
                                 </div>
-                            </div>
+                            </a>
                             <?php
                         }
                         ?>
@@ -710,75 +708,9 @@ include_once '../PRJ_Library/connect_DB.php';
 
 
                         <!--formloginuser-->
-                        <div id="modal-wrapper" class="modal">
-
-                            <form class="modalsign-content animatesign" style="width: 60%">
-
-                                <div class="imgcontainer">
-                                    <span onclick="document.getElementById('modal-wrapper').style.display = 'none'" class="close" title="Close PopUp">&times;</span>
-                                    <div class="login-wrap">
-                                        <div class="login-html">
-                                            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Ðăng Nhập</label>
-                                            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Ðăng Ký</label>
-                                            <form class="modalsign-content animatesign"></form>
-                                            <div class="login-form">
-                                                <form class="login" action="../Code/signIn_User.php" method="POST">
-                                                    <div class="sign-in-htm">
-                                                        <div class="group">
-                                                            <label for="user" class="label">Tên Ðăng Nhập</label>
-                                                            <input id="user" type="text" class="input" required maxlength="15" name="user_si">
-                                                        </div>
-                                                        <div class="group">
-                                                            <label for="pass" class="label">Mật Khẩu</label>
-                                                            <input id="pass" type="password" class="input" data-type="password" required maxlength="15" name="pass_si">
-                                                        </div>
-                                                        <div class="group">
-                                                            <input id="check" type="checkbox" class="check" checked>
-                                                            <label for="check"><span class="icon"></span>Ghi Nhớ Tài Khoản</label>
-                                                        </div>
-                                                        <div class="group">
-                                                            <input type="submit" class="button" value="Ðăng Nhập" name="bt_signIn">
-                                                        </div>
-                                                        <div class="hr"></div>
-                                                        <div class="foot-lnk">
-                                                            <a href="#forgot">Quên Mật Khẩu</a>
-                                                        </div>
-                                                    </div>
-                                                </form>
-
-                                                <form class="formreg" onSubmit="return validate();" action="../Code/signUp_user.php" method="POST">
-                                                    <div class="sign-up-htm">
-                                                        <div class="group">
-                                                            <label for="user" class="label">Tên Ðăng Nhập</label>
-                                                            <input id="user" type="text" class="input" required name="username" maxlength="15">
-                                                        </div>
-                                                        <div class="group">
-                                                            <label for="pass" class="label">Mật Khẩu</label>
-                                                            <input id="su_pass" type="password" class="input" data-type="password" required name="password" maxlength="15">
-                                                        </div>
-                                                        <div class="group">
-                                                            <label for="pass" class="label">Xác Nhận Mật Khẩu</label>
-                                                            <input id="su_cfpass" type="password" class="input" data-type="password" required maxlength="15">
-                                                            <span id='message'></span>
-                                                        </div>
-                                                        <div class="group">
-                                                            <label for="pass" class="label">Ðịa Chỉ Email</label>
-                                                            <input id="pass" type="email" class="input" required name="email" maxlength="50">
-                                                        </div>
-                                                        <div class="group">
-                                                            <input type="submit" class="button" value="Ðăng Ký" name="bt_signIn">
-                                                        </div>
-
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div><!--formloginuser-->
-
-                        <!--loginuser-->
+                       
+                        
+                   
                     </div>
                 </div>
             </div>
@@ -799,7 +731,7 @@ include_once '../PRJ_Library/connect_DB.php';
                         </button>
                         <a href="Home.php" class="navbar-logo">
                             <img style="height: 50px; display: inline-block;"
-                                 src="../Images/Thegioididong-icon.png" usemap="#Map" border="0">
+                                 src="../Images/logophpmobile.jpg" usemap="#Map" border="0">
                         </a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

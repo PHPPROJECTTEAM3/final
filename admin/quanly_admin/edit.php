@@ -1,6 +1,4 @@
 <?php
-session_start();
-include_once './HeaderAdmin.php';
 include_once '../../PRJ_Library/connect_DB.php';
 
 if (isset($_GET["bt_edit"])) {

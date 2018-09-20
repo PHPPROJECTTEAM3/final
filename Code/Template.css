@@ -538,6 +538,38 @@ input::-webkit-search-cancel-button {
     width: 100%;
     line-height: 3rem;
 }
+.cntt{
+    height: 30px;
+    width: 93%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    boder:1px solid gray;
+}
+.groupcntt{
+align:center; 
+}
+.groupcntt label{
+    display: block;
+    text-align: left;
+    margin: 3px;
+}
+.cnttop{
+        height: 30px;
+    width: 93%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    boder:1px solid gray;
+}
+.btncntt{
+    padding: 10px;
+    font-size: 15px;
+    color: white;
+    background: #5F9EA0;
+    border:none;
+    border-radius: 5px;
+}
 
 
 

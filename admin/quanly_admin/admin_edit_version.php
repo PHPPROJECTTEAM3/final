@@ -17,14 +17,7 @@ $row = mysqli_fetch_array($result);
 
 ?>
 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-         <link href="../blue/style2.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    </head>
-    <body class="margin5px">
+
        <h2>Edit Version</h2>
              <div style="overflow: hidden">
                 <div style="float: left"> 

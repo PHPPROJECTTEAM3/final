@@ -27,7 +27,7 @@ include_once '../PRJ_Library/header.php';
 
 include_once '../PRJ_Library/connect_DB.php';
 ?>
-<div style="background-color:#cccccc; ">
+<div>
     <div class="container" style="padding-bottom: 5%;">
         <div class="row">
             <div class="col-sm-3" style="padding-top: 5%;">
@@ -136,40 +136,46 @@ include_once '../PRJ_Library/connect_DB.php';
                         <table class="table table-striped">
                             <thead>   
                                 <tr>
-                                    <th><h2>Thông Tin Tài Khoản</h2></th>
+                                    <th style="text-align: center; color: cadetblue;"><h2>Thông Tin Tài Khoản</h2></th>
                                 </tr>
                             </thead>
 
                             <tbody style="width: 100%;">
                                 <tr>
-                                    <td><label>Họ và Tên Đệm</label> <input name="L_Name_profile" type="text" maxlength="30" required value="<?php echo $col[3]; ?>"></td>
+                                    <td> <div class="groupcntt"><label>Họ và Tên Đệm</label> 
+                                            <input class="cntt" name="L_Name_profile" type="text" maxlength="30" required value="<?php echo $col['l_name']; ?>"></div></td>
 
                                 </tr>
-                                <tr> <td><label>Tên</label> <input name="F_Name_profile" type="text" maxlength="20" required value="<?php echo $col[4]; ?>"></td></tr>
+                                <tr> <td>
+                                        <div class="groupcntt"><label>Tên</label>
+                                            <input class="cntt" name="F_Name_profile" type="text" maxlength="20" required value="<?php echo $col['f_name']; ?>"></div></td></tr>
                                 <tr>
-                                    <td><label>Số Điện Thoại</label> <input name="Phone_profile" type="tel" maxlength="10" required value="0<?php echo $col[6]; ?>"></td>
+                                    <td><div class="groupcntt"><label>Số Điện Thoại</label>
+                                            <input class="cntt" name="Phone_profile" type="tel" maxlength="10" required value="0<?php echo $col['phone']; ?>"></div></td>
                                 </tr>
                                 <tr>
-                                    <td><label>Địa Chỉ Email</label> <input name="Email_profile" type="email" maxlength="50" required value="<?php echo $col[5]; ?>"></td>
+                                    <td><div class="groupcntt"><label>Địa Chỉ Email</label>
+                                            <input class="cntt" name="Email_profile" type="email" maxlength="50" required value="<?php echo $col['mail']; ?>"></div></td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <label>Giới Tính</label>
-                                        <select name="Gender_profile">
-                                            <option value="<?php echo $col[6]; ?>"><?php echo $col[6] . ' (Đã Chọn)' ?></option>
-                                            <option value="Nam">Nam</option>
-                                            <option value="Nữ">Nữ</option>
-                                        </select>
+                                        <div class="groupcntt"> <label>Giới Tính</label>
+                                            <select class="cnttop" name="Gender_profile">
+                                                <option value="<?php echo $col['gender']; ?>"><?php echo $col['gender'] . ' (Đã Chọn)' ?></option>
+                                                <option value="Nam">Nam</option>
+                                                <option value="Nữ">Nữ</option>
+                                            </select></div>
                                     </td>
                                 </tr>
                                 <tr> 
-                                    <td><label>Ngày Sinh</label> <input name="Dob_profile" type="date" maxlength="10" required value="<?php echo $col[7]; ?>"></td>
+                                    <td><div class="groupcntt"><label>Ngày Sinh</label>
+                                            <input class="cntt" name="Dob_profile" type="date" maxlength="10" required value="<?php echo $col['date_birth']; ?>"></div></td>
                                 </tr>
                                 <tr> 
-                                    <td><p><strong>Mức Độ Tin Cậy:</strong> <?php echo $col[8] ?></p></td>
+                                    <td><p><strong>Mức Độ Tin Cậy:</strong> <?php echo $col['reliability'] ?></p></td>
                                 </tr>
                                 <tr>      
-                                    <td><input name="bt_profile" type="submit" value="Cập Nhật Thông Tin" ></td>
+                                    <td><input class="btncntt" name="bt_profile" type="submit" value="Cập Nhật Thông Tin" ></td>
                                 </tr>
                             </tbody>
                         </table>

@@ -1,4 +1,6 @@
 <?php
+include_once './HeaderAdmin.php';
+
 if(!(isset($_GET["id"])))
 {
     header("location:admin_manage_brand.php");
@@ -16,14 +18,7 @@ $row = mysqli_fetch_array($result);
 
 ?>
 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-          <link href="../blue/style2.css" rel="stylesheet" type="text/css"/>
-    </head>
-    <body class="margin5px">
+
       
         <h2>Edit Brand</h2>
              <div style="overflow: hidden">

@@ -1,21 +1,12 @@
 <?php
+ob_start();
 include_once './HeaderAdmin.php';
+session_start();
 include_once '../../PRJ_Library/connect_DB.php';
 $query = "SELECT * FROM `version`";
 $result = mysqli_query($link, $query);
 ?>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link href="../blue/style.css" rel="stylesheet" type="text/css"/>
-        <script src="../jquery-latest.js" type="text/javascript"></script>
-        <script src="../jquery.tablesorter.js" type="text/javascript"></script>
-
-    </head>
-    <body class="margin5px">
         <h2>Version List</h2>
         <div style="overflow: hidden">
             <div style="float: left"> 
