@@ -16,10 +16,14 @@ $col = mysqli_fetch_array($result);
 
 
         <form method="POST">
-            ID: <input name="roleid" readonly value="<?php echo $col['id']; ?>"><br/>
+            ID: <?php echo $col['id']; ?><br/>
             
-            Quyền Truy Cập Hiện Tại: <input name="cur_role" readonly value="<?php echo $col['role']; ?>"><br/>
-            Quyền Truy Cập Mới: <input name="new_role" value=""><br/>
+            Quyền Truy Cập Hiện Tại: <?php echo $col['role']; ?><br/>
+            <select class="fed" name="new_role">
+                        <option>Cấp Quyền</option>
+                        <option>1</option>
+                        <option>2</option>                        
+                    </select><br/><br/>
             <input type="submit" name="btnSubmit">
             <a href="Adduser.php">Quay về</a>
         </form>

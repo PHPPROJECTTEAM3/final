@@ -15,17 +15,22 @@ $col = mysqli_fetch_array($result);
 ?>
 
         <form method="POST">
-            ID: <input name="reliability" readonly value="<?php echo $col['id']; ?>"><br/>
+            ID: <?php echo $col['id']; ?><br/>
             
-            Độ tin cậy hiện tại: <input name="cur_reliability" readonly value="<?php echo $col['reliability']; ?>"><br/>
-            Độ tin cậy mới: <input name="reliability" value=""><br/>
+            Độ tin cậy hiện tại: <?php echo $col['reliability']; ?><br/>
+            Độ tin cậy mới: <select class="fed" name="new_reliability">
+                        <option>Độ Tin Cậy</option>
+                        <option>Tốt</option>
+                        <option>Bình Thường</option>
+                        <option>Yếu</option>
+                    </select><br/><br/>
             <input type="submit" name="btnSubmit">
             <a href="Addmember.php">Quay về</a>
         </form>
         
         <?php
         if (isset($_POST["btnSubmit"])){
-            $new_reliability = $_POST["reliability"];
+            $new_reliability = $_POST["new_reliability"];
             $query1 = "UPDATE member SET reliability = '$new_reliability' WHERE id = $ID";
             if($result1 = mysqli_query($link, $query1)){
                 header("Location:Addmember.php");
