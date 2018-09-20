@@ -1,5 +1,10 @@
 <?php
-include_once '../../PRJ_Library/connect_DB.php';
+ob_start();
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
+  include_once '../../PRJ_Library/connect_DB.php';
 ?>
 <!DOCTYPE html>
 <!--
@@ -10,7 +15,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-
+        <title>Admin</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -69,9 +74,11 @@ and open the template in the editor.
                                 <a href="pageadmin.php">Sơ đồ thống kê </a>
 
                             </li>
+                               <?php if($_SESSION['role']==1){ ?>
                             <li class="">
                                 <a href="Adduser.php">Thêm admin</a>
                             </li>
+                            <?php } ?>
                             <li class="">
                                 <a href="Addmember.php">Member</a>
                             </li>
@@ -100,8 +107,8 @@ and open the template in the editor.
                                          $count = 0;
                                          $sql7 = "SELECT * from feed_back ";
                                          $result7 = mysqli_query($link, $sql7);
-                                         $row7 = mysqli_fetch_array($result7);
-                                         while ($row7 = mysqli_fetch_array($result7)) {
+                                         
+                                         while ($row7 = mysqli_num_rows($result7)) {
                                              if ($row7[5] == NULL) {
                                                  $count++;
                                              } else {

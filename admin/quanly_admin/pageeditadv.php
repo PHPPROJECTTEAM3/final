@@ -1,9 +1,11 @@
 <?php
-ob_start();
+session_start();
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
 include_once '../../PRJ_Library/connect_DB.php';
 include_once '../quanly_admin/HeaderAdmin.php';
-session_start();
-
 if (!isset($_GET["id"])){
     header("Location:Addadvertise.php");
     exit();

@@ -1,6 +1,9 @@
 <?php
-ob_start();
 session_start();
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
 include_once '../quanly_admin/HeaderAdmin.php';
 $activeMenu = "";
 

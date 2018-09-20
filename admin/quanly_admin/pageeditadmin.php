@@ -1,13 +1,11 @@
 <?php
-ob_start();
-include_once '../../PRJ_Library/connect_DB.php';
-include_once '../quanly_admin/HeaderAdmin.php';
 session_start();
-
-if (!isset($_GET["id"])){
-    header("Location:Adduser.php");
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
     exit();
 }
+include_once '../../PRJ_Library/connect_DB.php';
+include_once '../quanly_admin/HeaderAdmin.php';
 $ID = $_GET["id"];
 $query = "SELECT * FROM admin WHERE id = $ID";
 $result = mysqli_query($link, $query);

@@ -1,6 +1,9 @@
 <?php
-
 session_start();
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
 
 if (!(isset($_GET["id"]))) {
     header("location:admin_manage_invoice.php");

@@ -1,5 +1,9 @@
-
 <?php
+session_start();
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
 include_once '../../PRJ_Library/connect_DB.php';
 
 if (!(isset($_GET["id_search"])) && !(isset($_GET["name_search"])))

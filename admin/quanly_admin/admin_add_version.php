@@ -1,5 +1,11 @@
 <?php
+session_start();
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
 include_once './HeaderAdmin.php';
+
 ?>
 
         <h2>Add Versions</h2>

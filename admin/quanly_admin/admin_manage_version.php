@@ -1,7 +1,10 @@
 <?php
-ob_start();
-include_once './HeaderAdmin.php';
 session_start();
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
+include_once './HeaderAdmin.php';
 include_once '../../PRJ_Library/connect_DB.php';
 $query = "SELECT * FROM `version`";
 $result = mysqli_query($link, $query);

@@ -1,6 +1,10 @@
 <?php
-    include_once '../../PRJ_Library/connect_DB.php';
     session_start();
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
+    include_once '../../PRJ_Library/connect_DB.php';
 
 	$username = $_POST["username"];
 	$password = $_POST["password"];
@@ -12,7 +16,6 @@
         
 	// Nếu thông tin đăng nhập chính xác, trả về giá trị là 1
 	if ($result) {
-               
 		echo "success";
 		exit();
 	} else {

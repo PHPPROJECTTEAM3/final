@@ -35,7 +35,6 @@
     </div>	
 
 
-
 <script type="text/javascript">
 	$("#btn_submit").on("click", function(){
 		var username = $("#username").val();

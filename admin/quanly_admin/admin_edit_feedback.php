@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
+    header("location:Login.php");
+    exit();
+}
+include_once './HeaderAdmin.php';
 if(!(isset($_GET["id"])))
 {
     header("location:admin_manage_feedback.php");
@@ -28,7 +33,7 @@ $row = mysqli_fetch_array($result);
                     <a href="admin_manage_feedback.php" style="text-decoration: none" >Back </a>
             </div>
                 <div style="float: right; margin-right: 20px">
-                    <a href="../admin_log_out.php" style="text-decoration: none;">Log Out</a>
+                    
                 </div> 
             </div>
             <hr/>   
