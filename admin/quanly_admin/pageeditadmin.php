@@ -37,7 +37,7 @@ $col = mysqli_fetch_array($result);
             exit();
             }
             else{
-                echo $query1;
+                echo "Thay đổi thất mại!";
                 exit();
             }
                 

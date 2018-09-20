@@ -2,11 +2,10 @@
 session_start();
 $pageTitle = "Liên Hệ";
 $activeMenu = "LienHe";
- 
+
 date_default_timezone_set('Asia/Ho_Chi_Minh');
  
  include_once '../PRJ_Library/header.php';
- 
  
 ?>
 
@@ -36,9 +35,10 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
             
             <div class="col-sm-4">
                 <p style="font-size: 25px; border-left: 5px solid #09afdf; padding-left: 3%;"><strong> PHPMobile xin hân hạnh được hỗ trợ quý khách </strong> </p>
-                <form class="fedb" method="POST">              
+                <form class="fedb" method="POST" id="feedback-form">
+                    <div id="error" style="color: red;"></div><div id="ok" style="color: green"></div>
                     <strong>Quý Khách Quan Tâm Về: </strong>
-                    <select class="fed" name="txttheme">
+                    <select class="fed" name="txttheme" id="txttheme">
                         <option>Chọn chủ đề</option>
                         <option>Khiếu Nại-Phản Ánh</option>
                         <option>Góp Ý</option>
@@ -47,28 +47,28 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
                     <p style="border: 1px solid #09afdf;"></p>
                     <div class="form-group">
                         <label>Tiêu Đề</label>
-                        <input class="fed form-control" type="text" name="txttitle" value="" required="">
+                        <input class="fed form-control" type="text" name="txttitle" id="txttitle" value="">
                     </div>
                     <div class="form-group">
                         <label>Họ và Tên</label>
-                        <input class="fed form-control" type="text" value="" name="txtname" required="">
+                        <input class="fed form-control" type="text" value="" name="txtname" id="txtname">
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input class="fed form-control" type="email" value="" name="txtmail" required="">
+                        <input class="fed form-control" type="email" value="" name="txtmail" id="txtmail">
                     </div>
                     <div class="form-group">
                         <label>Nội Dung</label>
-                        <textarea  class="fed form-control" type="text" value="" name="txtcontent" required=""></textarea>
+                        <textarea  class="fed form-control" type="text" value="" name="txtcontent" id="txtcontent"></textarea>
                     </div>
                       <div class="form-group">
                         <label>Ngày</label>
-                        <input  value="<?php echo date("Y-m-d - H:i:s"); ?>" readonly name="txtdate"><br/>
+                        <input  value="<?php echo date("Y-m-d - H:i:s"); ?>" readonly name="txtdate" id="txtdate"><br/>
                     </div>
                     
                     
                     <div class="form-group">
-                        <input class="subfed" type="submit" name="btnSubmit">
+                        <input class="subfed" type="submit" name="btn_Submit" id="btn_Submit">
                         
                     </div>
                 </form> 
@@ -88,45 +88,16 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
              <?php } ?>
 
         <div class="row">
-            <div class="col-sm-12" style="margin-bottom: 7%;">
-        <?php
-                include_once '../PRJ_Library/connect_DB.php';
-                if(isset($_POST["btnSubmit"]))
-                {
-                    $acc = $_SESSION["username"];
-                    $con_feed = $_POST["txtcontent"];                    
-                    $title = $_POST["txttitle"];
-                    $theme = $_POST["txttheme"];
-                    $email = $_POST["txtmail"];
-                    $fullname = $_POST["txtname"];
-                    $date_feed = $_POST["txtdate"];
-                    $sql7 = "INSERT INTO feed_back(acc,con_feed, title, theme, email, fullname, date_feed)" . "values ('$acc','$con_feed','$title','$theme','$email','$fullname','$date_feed')";
-                      try {
-                $result = mysqli_query($link, $sql7);
-                if (!$result) {
-                    error_clear_last();
-                    die("Fail to add");
-                   
-                }
-                echo "Them thanh cong";
- 
-            } catch (Exception $ex) {
-                echo "Loi sai";
-                error_clear_last();
-            }
-                }
-              $sql = "Select * from feed_back where con_rep is not null";
-              $sql3 = "Select * from feed_back where con_rep is null";
-              $result = mysqli_query($link, $sql);
-              $result3 = mysqli_query($link, $sql3);
-              ?>
-              
-              
+            <div class="col-sm-12" style="margin-bottom: 7%;">              
                   
                 <p style="font-size: 22px;margin-left: 3%;margin-top: 3%;border: #48a9ea;border-style: outset;text-align:  center;border-radius: 10px;position:  relative;">
                     <strong>Ý Kiến Khách Hàng</strong></p>
                    
-                   
+               <?php $sql = "Select * from feed_back where con_rep is not null";
+              $sql3 = "Select * from feed_back where con_rep is null";
+              $result = mysqli_query($link, $sql);
+              $result3 = mysqli_query($link, $sql3);
+              ?>
             <?php while($row = mysqli_fetch_array($result)){?>
                      
                          <div style="width: 500px;padding: 35px;margin: 15px">
@@ -164,10 +135,57 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
          
     </div>
 </div>    
-         
+  
+<script type="text/javascript">
+        
+        $("#feedback-form").submit(function(e) {
+        e.preventDefault();
+        var txttheme = $("#txttheme").val();
+		var txttitle = $("#txttitle").val();
+                var txtname = $("#txtname").val();
+                var txtmail = $("#txtmail").val();
+                var txtcontent = $("#txtcontent").val();
+                var txtdate = $("#txtdate").val();
+		var error = $("#error");
+		var ok = $("#ok");
+ 
+		// resert 2 thẻ div thông báo trở về rỗng mỗi khi click nút đăng nhập
+		error.html("");
+		ok.html("");
+ 
+		// Kiểm tra nếu username rỗng thì báo lỗi
+		if (txtmail == "") {
+			error.html("Email không được để trống");
+			return false;
+		}
+		// Kiểm tra nếu password rỗng thì báo lỗi
+		if (txtcontent == "") {
+			error.html("Nội dung không được để trống");
+			return false;
+		}
 
+        $.ajax({
+            type: "POST",
+            url: "checkfeedback.php",
+            data: { txttheme : txttheme, txttitle : txttitle, txtname : txtname, txtmail : txtmail, txtcontent : txtcontent, txtdate : txtdate },
+            dataType: "json",
+            success : function(response){
+		  	if (response == "1") {
+		  		ok.html("Cảm ơn bạn đã góp ý.");
+		  	}else{
+		  		error.html(response);
+                        }
+	    },
+            error: function (jqXHR, exception) {
+                      console.log(jqXHR);
+                      console.log(exception);
+     
+            }
+        });
 
-
+    });
+	
+</script>
 
 
 <?php
