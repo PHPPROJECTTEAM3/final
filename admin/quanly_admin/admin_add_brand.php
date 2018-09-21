@@ -13,7 +13,7 @@ include_once './HeaderAdmin.php';
             <p>Name Brand</p>
             <input name="name_brand" type="text" maxlenght="15" required>
             <p>Logo</p>
-            <input  name="logo_brand" type="file"><br/><br/>
+            <input  name="logo_brand" type="file" required><br/><br/>
             <input class="btn btn-success" name="bt_add_pro" type="submit" value="Add">
         </form>
         <?php

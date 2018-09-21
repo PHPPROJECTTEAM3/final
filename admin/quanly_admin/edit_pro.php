@@ -29,7 +29,7 @@ include_once './HeaderAdmin.php';
             
            
             
-            $query = "UPDATE `product` SET `ID`=$id_pro,`name`='$name_pro',`name_brand`='$brand_pro',`img`='$image_pro',`ver`='$ver_pro',`price`=$price_pro,`a_s`=$a_s_pro,`L_Date`='$l_date_pro' WHERE ID=$current_ID ";
+            $query = "UPDATE `product` SET `name`='$name_pro',`name_brand`='$brand_pro',`img`='$image_pro',`ver`='$ver_pro',`price`=$price_pro,`a_s`=$a_s_pro,`L_Date`='$l_date_pro' WHERE ID=$current_ID ";
             $result = mysqli_query($link, $query);
             
             if(!$result)
