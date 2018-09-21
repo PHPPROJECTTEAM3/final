@@ -37,7 +37,7 @@ if (isset($_GET["bt_add"])) {
             <tr>
                 <th style="width: 20%">Brand Name</th>
                 <th style="width: 20%">Logo</th>
-                <th style="width: 10%"colspan="2">....</th>
+                <th style="width: 10%"colspan="2">Action</th>
             </tr>
                 </thead>
                 <tbody>

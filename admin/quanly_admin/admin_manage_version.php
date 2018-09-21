@@ -44,7 +44,7 @@ $result = mysqli_query($link, $query);
                 <tr>
                     <th style="width: 20%">Name Version</th>
                     <th style="width: 20%">File PDF</th>
-                    <th style="width: 10%"  colspan="2">....</th>
+                    <th style="width: 10%"  colspan="2">Action</th>
                 </tr>
             </thead>
             <tbody>

@@ -57,7 +57,7 @@ if (isset($_GET["bt_search"])) {
                     <th style="width: 7%">Status</th>
                     <th style="width: 10%" >Admin Confirm</th>
                     <th style="width: 9%" >Date Receive</th>
-                    <th  colspan="3">....</th>
+                    <th  colspan="3">Action</th>
                 </tr> 
             </thead> 
             <tbody> 
