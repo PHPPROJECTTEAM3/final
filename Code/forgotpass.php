@@ -49,7 +49,7 @@ if (isset($_POST['email'])) {
                     . "Xin Chào, <br><br>"
                     . "Để đổi lại mật khẩu vui lòng bấm vào link bên dưới. <br>"
                     . "<a href='"
-                    . "http://localhost:8080/MyCode_PRJ/MyCode/resetpass.php?email=$email&token=$token"
+                    . "http://localhost:8080/Final/Code/resetpass.php?email=$email&token=$token"
                     . "'>http://localhost:8080/MyCode_PRJ/MyCode/resetpass.php</a><br><br>"
                     . "Trân trọng,<br>"
                     . "PHPMOBILE.";
