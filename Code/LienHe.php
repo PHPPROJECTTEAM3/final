@@ -7,6 +7,10 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
  
  include_once '../PRJ_Library/header.php';
  
+ 
+$querymail="SELECT *FROM member";
+$resultmail= mysqli_query($link, $querymail);
+$rowmail= mysqli_fetch_array($resultmail);
 ?>
 
 
@@ -49,13 +53,10 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
                         <label>Tiêu Đề</label>
                         <input class="fed form-control" type="text" name="txttitle" id="txttitle" value="">
                     </div>
-                    <div class="form-group">
-                        <label>Họ và Tên</label>
-                        <input class="fed form-control" type="text" value="" name="txtname" id="txtname">
-                    </div>
+                    
                     <div class="form-group">
                         <label>Email</label>
-                        <input class="fed form-control" type="email" value="" name="txtmail" id="txtmail">
+                        <input class="fed form-control" type="email" value="<?php echo $rowmail['mail'] ?>" readonly="" name="txtmail" id="txtmail">
                     </div>
                     <div class="form-group">
                         <label>Nội Dung</label>
