@@ -14,7 +14,7 @@ include_once '../PRJ_Library/header.php';
     <div class="DetailsGioHang">
 
         <h2 class="text-center">Giỏ hàng của bạn</h2>
-        <div class="container"> 
+        <div class="container" style="margin-bottom: 13%;"> 
             <table id="cart" class="table table-hover table-condensed">
                 <!--Table thông tin từng cột-->
 
@@ -33,8 +33,12 @@ include_once '../PRJ_Library/header.php';
                 <!--Sản phẩm của khách hàng đã chọn-->
                 <tbody>
                     <?php
-                    if (!isset($_SESSION["cartuser"]) || $_SESSION["cartuser"] == NULL) {
-                        echo '<td><h4>Giỏ Hàng Trống</h4></td>';
+                    if (!isset($_SESSION["cartuser"]) || $_SESSION["cartuser"] == NULL) { ?>
+                         
+                    <?php echo '<td><center><h4>Giỏ Hàng Trống</h4></center></td>'; ?>
+                        
+                   
+                <?php
                     } else {
                         foreach ($_SESSION["cartuser"] as $ID => $SP) {
                             ?>
@@ -98,7 +102,7 @@ include_once '../PRJ_Library/header.php';
                     <tfoot> 
                         <tr>
                             <td><label><h3>Ghi Chú</h3></label><br/>
-                                <textarea name="note_cus" maxlength="500" rows="5" cols="100"><?php
+                                <textarea style="resize:none;" name="note_cus" maxlength="500" rows="5" cols="100"><?php
                                     if (isset($_SESSION["note"])) {
                                         echo $_SESSION["note"];
                                     }

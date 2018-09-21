@@ -23,7 +23,7 @@ include_once '../../PRJ_Library/connect_DB.php';
        <h2>Statistical</h2>
 <div style="overflow: hidden">
     <div style="float: left"> 
-        <a href="Addproduct.php" style="text-decoration: none" >Back to Manage Product</a>
+        <a href="admin_manage_invoice.php" style="text-decoration: none" >Back to Manage Invoice</a>
     </div>
     <div style="float: right; margin-right: 20px">
         <a href="admin_log_out.php" style="text-decoration: none;">Log Out</a>

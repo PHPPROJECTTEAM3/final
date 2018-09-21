@@ -80,10 +80,16 @@ and open the template in the editor.
                                 </li>
                             <?php } ?>
                             <li class="">
-                                <a href="Addmember.php">Member</a>
+                                <a href="Addmember.php">Khách Hàng</a>
+                            </li>
+                            <li class="">
+                                <a href="Addadvertise.php">Quảng Cáo</a>
                             </li>
                             <li class="">
                                 <a href="Addproduct.php">Sản Phẩm</a>
+                            </li>
+                            <li class="">
+                                <a href="admin_manage_invoice.php">Đơn Hàng</a>
                             </li>
                             <li class="">
                                 <a href="admin_manage_feedback.php">Feedback</a>     

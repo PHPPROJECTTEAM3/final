@@ -30,13 +30,19 @@ $result = mysqli_query($link, $query);
                 <a href="admin_log_out.php" style="text-decoration: none;">Log Out</a>
             </div> 
         </div>
-        <hr/>   
-
+        <hr/>
         <form>
+            <input class="btn btn-info active" name="manage_statistical" type="submit" value="Manage Statistical">
             <p>ID Invoice: <input name="id_search" type="number" value="0" required> <input name="bt_search" type="submit" value="Search" class="btn btn-info active"></p>
         </form>
         
 <?php
+if (isset($_GET["manage_statistical"])) 
+    {
+    header("location:admin_manage_statistical.php");
+    mysqli_close($link);
+    exit();
+}
 if (isset($_GET["bt_search"])) {
     $id_search = $_GET["id_search"];
     $query = "SELECT * FROM `invoice` WHERE `ID` = $id_search";
@@ -57,7 +63,7 @@ if (isset($_GET["bt_search"])) {
                     <th style="width: 7%">Status</th>
                     <th style="width: 10%" >Admin Confirm</th>
                     <th style="width: 9%" >Date Receive</th>
-                    <th  colspan="3">....</th>
+                    <th  colspan="3">Action</th>
                 </tr> 
             </thead> 
             <tbody> 
