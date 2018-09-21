@@ -89,6 +89,9 @@ and open the template in the editor.
                                 <a href="Addproduct.php">Sản Phẩm</a>
                             </li>
                             <li class="">
+                                <a href="admin_manage_invoice.php">Đơn Hàng</a>
+                            </li>
+                            <li class="">
                                 <a href="admin_manage_feedback.php">Feedback</a>     
                                 <div style="
                                      display: inline-block;

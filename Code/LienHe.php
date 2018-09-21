@@ -11,12 +11,12 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 
 
-<div style="margin-top: 5%; margin-bottom: 5%">
+<div style="margin-top: 5%;">
     <div class="container">
         <div class="row">
             
           <?php  if (!isset($_SESSION["username"])) { ?>
-                           <div class="col-sm-8">
+            <div class="col-sm-8">
                                <p style="font-size: 19px" > *Mời quý khách đăng nhập để sử dụng tính năng Feedback nếu như có phản hồi, ý kiến. </p>
                 <p style="border: 2px solid #ddd;"></p>
                 <p style="font-size: 20px"> <strong> THÔNG TIN LIÊN HỆ KHÁC </strong>
@@ -100,7 +100,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
               ?>
             <?php while($row = mysqli_fetch_array($result)){?>
                      
-                         <div style="width: 500px;padding: 35px;margin: 15px">
+                         <div style="width: 500px; margin-bottom: 15px;">
                              <p style="font-size:17px"><strong><?php $row['acc'] ?></strong></p> 
                              <p style="width: 250%"><?php echo $row['con_feed'] ?></p>
                              <p style="margin-top: -2%; color:skyblue;""><?php echo $row['date_feed']?></p>

@@ -22,9 +22,8 @@ $query = "SELECT * FROM `product`";
 <form>
     <p>
         <input class="btn btn-info active"  name="manage_brand" type="submit" value="Manage Brand">
-        <input class="btn btn-info active" style="margin-left: 50px" name="manage_version" type="submit" value="Manage Version">
-        <input class="btn btn-info active" style="margin-left: 50px" name="manage_invoice" type="submit" value="Manage Invoice">  
-        <input class="btn btn-info active" style="margin-left: 50px" name="manage_statistical" type="submit" value="Manage Statistical">  
+        <input class="btn btn-info active" style="margin-left: 50px" name="manage_version" type="submit" value="Manage Version"> 
+          
     </p>
 
 
@@ -67,12 +66,6 @@ if (isset($_GET["bt_refesh"]))
     exit();
 }
 
-if (isset($_GET["manage_statistical"])) 
-    {
-    header("location:admin_manage_statistical.php");
-    mysqli_close($link);
-    exit();
-}
 
 if (isset($_GET["manage_brand"])) 
     {
@@ -83,12 +76,6 @@ if (isset($_GET["manage_brand"]))
 if (isset($_GET["manage_version"])) 
     {
     header("location:admin_manage_version.php");
-    mysqli_close($link);
-    exit();
-}
-if (isset($_GET["manage_invoice"])) 
-    {
-    header("location:admin_manage_invoice.php");
     mysqli_close($link);
     exit();
 }
