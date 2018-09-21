@@ -16,26 +16,26 @@ if (!(isset($_SESSION["username"]))) {
     exit();
 }
 date_default_timezone_set("Asia/Ho_Chi_Minh");
-//$query6 = "SELECT * FROM `cancel_invoice` WHERE `Member` like '".$_SESSION["username"]."' ORDER BY `cancel_invoice`.`Date_Request` DESC";
-//$result6 = mysqli_query($link, $query6);
-//$countt = 0;
-//
-//
-//$date_now = date("Y-m-d");
-//$check = 0;
-//while ($countt != 3) {
-//    $col6 = mysqli_fetch_array($result6);
-//    $date = new DateTime("$col6[4]");
-//    $date_cancel = $date->format("Y-m-d");
-//    if ($date_cancel == $date_now) {
-//        $check++;
-//    }
-//    $countt++;
-//}
-//if ($check == 3) {
-//    header("location:Giohang.php?check_DatHang=9");
-//    exit();
-//}
+$query6 = "SELECT * FROM `cancel_invoice` WHERE `Member` like '".$_SESSION["username"]."' ORDER BY `cancel_invoice`.`Date_Request` DESC";
+$result6 = mysqli_query($link, $query6);
+$countt = 0;
+
+
+$date_now = date("Y-m-d");
+$check = 0;
+while ($countt != 3) {
+    $col6 = mysqli_fetch_array($result6);
+    $date = new DateTime("$col6[4]");
+    $date_cancel = $date->format("Y-m-d");
+    if ($date_cancel == $date_now) {
+        $check++;
+    }
+    $countt++;
+}
+if ($check == 3) {
+    header("location:Giohang.php?check_DatHang=9");
+    exit();
+}
 
 
 $quantity_pro2 = 0;

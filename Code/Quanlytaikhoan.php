@@ -29,11 +29,11 @@ include_once '../PRJ_Library/connect_DB.php';
     <div class="container" style="padding-bottom: 5%;">
         <div class="row">
             <div class="col-sm-3" style="padding-top: 5%;">
-                <ul>
-                    <li><button id="bt_profile"><i class="fa fa-eye" style="color: black;"></i>Thông tin tài khoản</button></li>
-                    <li><button id="bt_invoice">Quản lí đơn hàng</button></li>
-                     <li><button id="bt_invoice2">Đơn hàng đã hủy</button></li>
-                    <li><a id="bt_notice" href="">Thông báo</a></li>
+                <ul style="list-style-type: none">
+                    <li><button style="margin: 10px" id="bt_profile" class="btn btn-info"><i class="fa fa-eye" style="color: black;"></i>Thông tin tài khoản</button></li>
+                    <li><button style="margin: 10px" id="bt_invoice" class="btn btn-info">Quản lí đơn hàng</button></li>
+                     <li><button style="margin: 10px" id="bt_invoice2" class="btn btn-info">Đơn hàng đã hủy</button></li>
+                     
                 </ul>     
             </div>
 
