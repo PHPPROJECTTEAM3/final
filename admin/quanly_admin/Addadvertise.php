@@ -26,7 +26,7 @@ if($num == 0)
                 <div style="float: left">    
                     <a href="admin_add_adv.php">Thêm quảng cáo</a>
             </div>
-                <div style="float: right; margin-right: 10px; margin-top: -9%;">
+                <div style="float: right; margin-right: 10px; margin-top: -5%;">
                    <a href="admin_log_out.php" style="text-decoration: none;">Log Out</a>
                     </div>  
                 

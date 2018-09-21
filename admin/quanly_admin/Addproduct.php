@@ -14,7 +14,7 @@ $query = "SELECT * FROM `product`";
     <div style="float: left"> 
 
     </div>
-    <div style="float: right; margin-right: 10px; margin-top: -9%;">
+    <div style="float: right; margin-right: 10px; margin-top: -5%;">
         <a href="admin_log_out.php" style="text-decoration: none;">Log Out</a>
     </div> 
 </div>
