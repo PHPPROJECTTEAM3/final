@@ -23,6 +23,7 @@ $result = mysqli_query($link, $query);
             <p>
                 
                 Account: <input id="name_fb" type="text" style="margin-right: 10px"</p>
+            <input class="btn btn-default" id="btnPrint" type="button" value="Print">
                 <input class="btn btn-default" name="bt_refesh" type="submit" value="Refesh" style="margin-right: 50px">
         </form>
       <?php
@@ -33,7 +34,7 @@ $result = mysqli_query($link, $query);
             exit();
         }
         ?>
-<center><table id="myTable" class="tablesorter" style="width: 80%">
+<center><table id="myTable" class="tablesorter" style="width: 80%" border="1" cellpadding="3">
         <thead>
         <tr>
             <th>ID</th>
@@ -81,7 +82,10 @@ $result = mysqli_query($link, $query);
         </tbody></table></center>
 <script type="text/javascript">
         $(document).ready(function () {
-
+           $('#btnPrint').click(function(){
+            PrintElem();
+           });
+           
             $("#myTable").tablesorter();
             
             $("#name_fb").keyup(function () {
@@ -92,6 +96,16 @@ $result = mysqli_query($link, $query);
                 });
 
         });
+        
+  
+        function PrintElem()
+{
+    var divToPrint = document.getElementById("myTable");
+   newWin= window.open("");
+   newWin.document.write(divToPrint.outerHTML);
+   newWin.print();
+   newWin.close();
+}
     </script>
     <?php
 

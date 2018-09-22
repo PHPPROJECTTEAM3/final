@@ -66,7 +66,7 @@ $rowmail = mysqli_fetch_array($resultmail);
                         </div>
                         <div class="form-group">
                             <label>Ngày</label>
-                            <input  value="<?php echo date("Y-m-d - H:i:s"); ?>" readonly name="txtdate" id="txtdate"><br/>
+                            <input  value="<?php echo date("Y-m-d"); ?>" readonly name="txtdate" id="txtdate"><br/>
                         </div>
 
 

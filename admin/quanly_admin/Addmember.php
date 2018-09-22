@@ -86,7 +86,7 @@ if($num == 0)
           </tbody></table></center>
 <script type="text/javascript">
         $(document).ready(function () {
-
+            
             $("#myTable").tablesorter();
             
             $("#name_member").keyup(function () {
