@@ -22,9 +22,9 @@ include_once '../PRJ_Library/header.php';
                     <tr> 
                         <th style="width:50%">Tên sản phẩm</th> 
                         <th style="width:10%">Giá</th> 
-                        <th style="width:8%">Số lượng</th> 
+                        <th style="width:23%">Số lượng</th> 
                         <th style="width:22%" class="text-center">Thành tiền</th> 
-                      
+
                         <th style="width:5%">Xóa</th> 
                     </tr> 
                 </thead> 
@@ -32,13 +32,12 @@ include_once '../PRJ_Library/header.php';
 
                 <!--Sản phẩm của khách hàng đã chọn-->
                 <tbody>
-                    <?php
-                    if (!isset($_SESSION["cartuser"]) || $_SESSION["cartuser"] == NULL) { ?>
-                         
-                    <?php echo '<td><center><h4>Giỏ Hàng Trống</h4></center></td>'; ?>
-                        
-                   
-                <?php
+                    <?php if (!isset($_SESSION["cartuser"]) || $_SESSION["cartuser"] == NULL) { ?>
+
+                        <?php echo '<td><center><h4>Giỏ Hàng Trống</h4></center></td>'; ?>
+
+
+                        <?php
                     } else {
                         foreach ($_SESSION["cartuser"] as $ID => $SP) {
                             ?>
@@ -88,7 +87,7 @@ include_once '../PRJ_Library/header.php';
                                 }
                                 ?>
                                 <td data-th="Subtotal" class="text-center" style="color: #c1000c " ><strong><?php echo $price2 ?>₫</strong></td> 
-                               
+
                                 <td class="actions" data-th=""> 
                                     <a href="<?php echo "delete_sanpham_trong_Giohang.php?ID=$SP->proID" ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a></td>
                             </tr> 
@@ -100,10 +99,10 @@ include_once '../PRJ_Library/header.php';
                         <tr>
                             <td><label><h3>Ghi Chú</h3></label><br/>
                                 <textarea style="resize:none;" name="note_cus" maxlength="500" rows="5" cols="100"><?php
-                                    if (isset($_SESSION["note"])) {
-                                        echo $_SESSION["note"];
-                                    }
-                                    ?></textarea></td>
+                        if (isset($_SESSION["note"])) {
+                            echo $_SESSION["note"];
+                        }
+                        ?></textarea></td>
                         </tr>
 
                         <tr> 
@@ -161,7 +160,7 @@ if (isset($_GET["check_DatHang"])) {
     if ($_GET["check_DatHang"] == 3) {
         ?>
         <script>
-            alert('Đặt Hàng Thất Bại !!!\n\Bạn Không Đủ Điều Kiện Để Đặt Hàng\n\Vui Lòng Liên Hệ SĐT: 028312345 - 0909090909 hoặc Email:phpmobile@gmail.com Để Được Giải Đáp');          
+            alert('Đặt Hàng Thất Bại !!!\n\Bạn Không Đủ Điều Kiện Để Đặt Hàng\n\Vui Lòng Liên Hệ SĐT: 028312345 - 0909090909 hoặc Email:phpmobile@gmail.com Để Được Giải Đáp');
         </script>
         <?php
     }
@@ -176,7 +175,7 @@ if (isset($_GET["check_DatHang"])) {
         </script>
         <?php
     }
-    
+
     if ($_GET["check_DatHang"] == 5) {
         ?>
         <script>
@@ -187,58 +186,37 @@ if (isset($_GET["check_DatHang"])) {
             }
         </script>
         <?php
-    }   
-    
-    if ($_GET["check_DatHang"] == 5) {
-        ?>
-        <script>
-            alert('Đặt Hàng Thất Bại !!!\n\Đơn Hàng Của Khách Hàng Thân Thiết Đặt Online Không Được Vượt Quá 60 Triệu Và 4 Sản Phẩm');
-            var r = confirm("Xem Chính Sách Đặt Hàng");
-            if (r == true) {
-                window.location = "Home.php";
-            }
-        </script>
-        <?php
-    }   
-    
-      if ($_GET["check_DatHang"] == 6) {
-        ?>
-        <script>
-            alert('Đặt Hàng Thất Bại !!!\n\Quá Trình Xử Lý Gặp Lỗi, Vui Lòng Liên Hệ SĐT: 028312345 - 0909090909 hoặc Email:phpmobile@gmail.com Để Được Giải Quyết');          
-        </script>
-        <?php
-    }   
+    }
     if ($_GET["check_DatHang"] == 6) {
         ?>
         <script>
-            alert('Đặt Hàng Thất Bại !!!\n\Quá Trình Xử Lý Gặp Lỗi, Vui Lòng Liên Hệ SĐT: 028312345 - 0909090909 hoặc Email:phpmobile@gmail.com Để Được Giải Quyết');          
+            alert('Đặt Hàng Thất Bại !!!\n\Quá Trình Xử Lý Gặp Lỗi, Vui Lòng Liên Hệ SĐT: 028312345 - 0909090909 hoặc Email:phpmobile@gmail.com Để Được Giải Quyết');
         </script>
         <?php
-    }   
+    }
     if ($_GET["check_DatHang"] == 7 && isset($_GET["MS"])) {
-        echo "<input id='MS_H' type='hidden' value='".$_GET["MS"]."'>";
+        echo "<input id='MS_H' type='hidden' value='" . $_GET["MS"] . "'>";
         ?>
         <script>
             var MS_H = document.getElementById('MS_H').value;
-            alert('Đặt Hàng Thất Bại !!!\n\Bạn Còn Đơn Hàng Chưa Thanh Toán (mã số: '+MS_H+')');          
+            alert('Đặt Hàng Thất Bại !!!\n\Bạn Còn Đơn Hàng Chưa Thanh Toán (mã số: ' + MS_H + ')');
         </script>
         <?php
-    }   
+    }
     if ($_GET["check_DatHang"] == 8) {
         ?>
         <script>
-            alert('Đặt Hàng Thành Công !!!');          
+            alert('Đặt Hàng Thành Công !!!');
         </script>
         <?php
-    }   
-     if ($_GET["check_DatHang"] == 9) {
+    }
+    if ($_GET["check_DatHang"] == 9) {
         ?>
         <script>
-            alert('Đặt Hàng Thất Bại !!!\n\Hôm Nay Bạn Đã Hủy Đơn Hàng Hơn 3 Lần, Vui Lòng Chờ Đến Ngày Mai Để Tiếp Tục Đặt Hàng Online\n\Hoặc Bạn Có Thể Đến Cửa Hàng Của PHPMobile Để Mua Hàng Trực Tiếp.');          
+            alert('Đặt Hàng Thất Bại !!!\n\Hôm Nay Bạn Đã Hủy Đơn Hàng Hơn 3 Lần, Vui Lòng Chờ Đến Ngày Mai Để Tiếp Tục Đặt Hàng Online\n\Hoặc Bạn Có Thể Đến Cửa Hàng Của PHPMobile Để Mua Hàng Trực Tiếp.');
         </script>
         <?php
-    }   
-     
+    }
 }
 ?>
 <!--footer-->

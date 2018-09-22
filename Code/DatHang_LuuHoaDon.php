@@ -38,15 +38,15 @@ date_default_timezone_set("Asia/Ho_Chi_Minh");
 //}
 
 
-$quantity_pro2 = 0;
-$total_pro2 = 0;
-$total_quantity2 = 0;
-$total_price2 = 0;
+$quantity_pro3 = 0;
+$total_pro3 = 0;
+$total_quantity3 = 0;
+$total_price3= 0;
 foreach ($_SESSION["cartuser"] as $ID => $SP) {
-    $quantity_pro2 = $SP->proAmount;
-    $total_pro2 = ($SP->proPrice * $SP->proAmount);
-    $total_quantity2 += $quantity_pro2;
-    $total_price2 += $total_pro2;
+    $quantity_pro3 = $SP->proAmount;
+    $total_pro3 = ($SP->proPrice * $SP->proAmount);
+    $total_quantity3 += $quantity_pro3;
+    $total_price3 += $total_pro3;
 }
 
 
@@ -55,22 +55,22 @@ $acc_name = $_SESSION["username"];
 $query4 = "SELECT * FROM `member` WHERE `acc` like '$acc_name'";
 $result4 = mysqli_query($link, $query4);
 $col = mysqli_fetch_array($result4);
-if ($col[2] == NULL || $col[3] == NULL || $col[5] == NULL || $col[6] == NULL || $col[7] == NULL) {
+if ($col[3] == NULL || $col[4] == NULL || $col[6] == NULL || $col[7] == NULL || $col[8] == NULL) {
     header("location:Giohang.php?check_DatHang=2");
     exit();
 }
-if ($col[8] == 'Yếu') {
+if ($col[9] == 'Yếu') {
     header("location:Giohang.php?check_DatHang=3");
     exit();
 }
-if ($col[8] == 'Khá') {
-    if ($total_price2 > 50000000 || $total_quantity2 > 3) {
+if ($col[9] == 'Trung Bình') {
+    if ($total_price3 > 50000000 || $total_quantity3 > 3) {
         header("location:Giohang.php?check_DatHang=4");
         exit();
     }
 }
-if ($col[8] == 'Tốt') {
-    if ($total_price2 > 60000000 || $total_quantity2 > 4) {
+if ($col[9] == 'Tốt') {
+    if ($total_price3 > 60000000 || $total_quantity3 > 4) {
         header("location:Giohang.php?check_DatHang=5");
         exit();
     }
