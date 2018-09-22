@@ -14,7 +14,7 @@ include_once '../PRJ_Library/header.php';
     <div class="DetailsGioHang">
 
         <h2 class="text-center">Giỏ hàng của bạn</h2>
-        <div class="container" style="margin-bottom: 13%;"> 
+        <div class="container" style="margin-bottom:19%;"> 
             <table id="cart" class="table table-hover table-condensed">
                 <!--Table thông tin từng cột-->
 
@@ -24,7 +24,7 @@ include_once '../PRJ_Library/header.php';
                         <th style="width:10%">Giá</th> 
                         <th style="width:8%">Số lượng</th> 
                         <th style="width:22%" class="text-center">Thành tiền</th> 
-                        <th style="width:5%">Chỉnh Sửa</th> 
+                      
                         <th style="width:5%">Xóa</th> 
                     </tr> 
                 </thead> 
@@ -88,10 +88,7 @@ include_once '../PRJ_Library/header.php';
                                 }
                                 ?>
                                 <td data-th="Subtotal" class="text-center" style="color: #c1000c " ><strong><?php echo $price2 ?>₫</strong></td> 
-                                <td class="actions" data-th="">
-                                    <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
-                                    </button> 
-                                </td>
+                               
                                 <td class="actions" data-th=""> 
                                     <a href="<?php echo "delete_sanpham_trong_Giohang.php?ID=$SP->proID" ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a></td>
                             </tr> 
