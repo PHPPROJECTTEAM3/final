@@ -1,29 +1,11 @@
-<!--<!DOCTYPE html>
-
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Members</title>
-        <link href="Template.css" rel="stylesheet" type="text/css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <link href="../Code/dangkydangnhap.css" rel="stylesheet" type="text/css"/>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"> 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-
-    </head>
-    <body>-->
 <?php
-include_once '../PRJ_Library/data_product.inc';
+ob_start();
 session_start();
 $pageTitle = "Tài Khoản";
 $activeMenu = "home";
 include_once '../PRJ_Library/header.php';
 include_once '../PRJ_Library/connect_DB.php';
+include_once '../PRJ_Library/data_product.inc';
 ?>
 <div>
     <div class="container" style="padding-bottom: 5%;">
@@ -263,7 +245,7 @@ include_once '../PRJ_Library/connect_DB.php';
                                 </tr>
                                 <tr>
                                     <td><div class="groupcntt"><label>Địa Chỉ Email</label>
-                                            <input class="cntt" name="Email_profile" type="email" maxlength="50" required value="<?php echo $col['mail']; ?>"></div></td>
+                                            <input class="cntt" name="Email_profile" type="email" maxlength="50" readonly required value="<?php echo $col['mail']; ?>"></div></td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -298,10 +280,14 @@ include_once '../PRJ_Library/connect_DB.php';
                         $email_ = $_POST["Email_profile"];
                         $gender_ = $_POST["Gender_profile"];
                         $Dob_ = $_POST["Dob_profile"];
+                        $age =  date_create($Dob_)->diff(date_create('today'))->y;
+                        if($age < 16){
+                            exit('<h2>Tuổi phải lớn hơn 16 tuổi</h2>');
+                        }
                         $query2 = "UPDATE `member` SET `l_name`='$l_name',`f_name`='$f_name',`mail`='$email_',`phone`= $phone_,`gender`= '$gender_',`date_birth`= '$Dob_' WHERE acc like '$acc'";
                         $result2 = mysqli_query($link, $query2);
                         if ($result2 != false) {
-                            echo '<h2>Cập Nhật Thành Công</h2>';
+                            header("Refresh:0");
                         } else {
                             echo '<h2>Cập Nhật Thất Bại</h2>';
                         }
