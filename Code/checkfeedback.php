@@ -6,7 +6,7 @@
                     $title = $_POST["txttitle"];
                     $theme = $_POST["txttheme"];
                     $email = $_POST["txtmail"];
-                    $fullname = $_POST["txtname"];
+                    $fullname = "";
                     $date_feed = $_POST["txtdate"];
                     $query = "INSERT INTO feed_back(acc,con_feed, title, theme, email, fullname, date_feed) values ('$acc','$con_feed','$title','$theme','$email','$fullname','$date_feed')";
                 $result = mysqli_query($link, $query);

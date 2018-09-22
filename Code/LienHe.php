@@ -40,7 +40,8 @@ $rowmail= mysqli_fetch_array($resultmail);
             <div class="col-sm-4">
                 <p style="font-size: 25px; border-left: 5px solid #09afdf; padding-left: 3%;"><strong> PHPMobile xin hân hạnh được hỗ trợ quý khách </strong> </p>
                 <form class="fedb" method="POST" id="feedback-form">
-                    <div id="error" style="color: red;"></div><div id="ok" style="color: green"></div>
+                    <div id="error" style="color: red;"></div>
+                    <div id="ok" style="color: green"></div>
                     <strong>Quý Khách Quan Tâm Về: </strong>
                     <select class="fed" name="txttheme" id="txttheme">
                         <option>Chọn chủ đề</option>
@@ -143,7 +144,6 @@ $rowmail= mysqli_fetch_array($resultmail);
         e.preventDefault();
         var txttheme = $("#txttheme").val();
 		var txttitle = $("#txttitle").val();
-                var txtname = $("#txtname").val();
                 var txtmail = $("#txtmail").val();
                 var txtcontent = $("#txtcontent").val();
                 var txtdate = $("#txtdate").val();
@@ -164,11 +164,15 @@ $rowmail= mysqli_fetch_array($resultmail);
 			error.html("Nội dung không được để trống");
 			return false;
 		}
+                if (txtcontent.length > 1000) {
+                    error.html("Nội dung phải nhỏ hơn 1000 ký tự");
+                    return false;
+                }
 
         $.ajax({
             type: "POST",
             url: "checkfeedback.php",
-            data: { txttheme : txttheme, txttitle : txttitle, txtname : txtname, txtmail : txtmail, txtcontent : txtcontent, txtdate : txtdate },
+            data: { txttheme : txttheme, txttitle : txttitle, txtmail : txtmail, txtcontent : txtcontent, txtdate : txtdate },
             dataType: "json",
             success : function(response){
 		  	if (response == "1") {

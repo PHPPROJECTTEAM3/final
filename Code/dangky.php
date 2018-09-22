@@ -51,7 +51,7 @@ include_once '../PRJ_Library/footer.html';
             }
             
             $("#btn_submit").on("click", function () {
-                var username = $("#username").val();
+                var username = $("#username").val().trim();
                 var password_1 = $("#password_1").val();
                 var password_2 = $("#password_2").val();
                 var mail = $("#mail").val();
@@ -60,10 +60,17 @@ include_once '../PRJ_Library/footer.html';
                 // resert 2 thẻ div thông báo trở về rỗng mỗi khi click nút đăng nhập
                 error.html("");
                 ok.html("");
-
                 // Kiểm tra nếu username rỗng thì báo lỗi
                 if (username == "") {
                     error.html("Tên đăng nhập không được để trống");
+                    return false;
+                }
+                if (username.length < 6 ||  username.length > 15) {
+                    error.html("Tài khoản 6-15 ký tự");
+                    return false;
+                }
+                if (password_1.length < 4 ||  password_1.length > 8) {
+                    error.html("Mật khẩu 4-8 ký tự");
                     return false;
                 }
                 // Kiểm tra nếu password rỗng thì báo lỗi
