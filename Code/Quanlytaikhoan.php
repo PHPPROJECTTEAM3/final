@@ -280,6 +280,10 @@ include_once '../PRJ_Library/data_product.inc';
                         $email_ = $_POST["Email_profile"];
                         $gender_ = $_POST["Gender_profile"];
                         $Dob_ = $_POST["Dob_profile"];
+                        if(!preg_match("/^([0-9]*)$/", $phone_)) {
+                            // $phone is valid
+                            exit('<h2>Số điện thoại phải là số</h2>');
+                        }
                         $age =  date_create($Dob_)->diff(date_create('today'))->y;
                         if($age < 16){
                             exit('<h2>Tuổi phải lớn hơn 16 tuổi</h2>');
