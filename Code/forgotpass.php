@@ -55,7 +55,7 @@ if (isset($_POST['email'])) {
                     . "PHPMOBILE.";
 
             $mail->send();
-            echo(json_encode(array("status" => 1, "msg" => ' Đã xãy ra lỗi! Vui lòng kiểm tra lại email đã nhập')));
+            echo(json_encode(array("status" => 1, "msg" => ' Vui lòng kiểm tra email của bạn')));
             //exit(json_encode(array("status" => 1, "msg" => 'Vui lòng kiểm tra tin nhắn Email.')));
             
         } catch (Exception $e) {
@@ -90,12 +90,7 @@ include_once '../PRJ_Library/header.php';
         </div>
 </div>
 
-
-<?php
-include_once '../PRJ_Library/footer.html';
-?>        
-
-        <script type="text/javascript">
+<script type="text/javascript">
             var email = $("#email");
 
 
@@ -130,5 +125,12 @@ include_once '../PRJ_Library/footer.html';
                 });
             });
         </script>
+
+
+<?php
+include_once '../PRJ_Library/footer.html';
+?>        
+
+        
     </body>
 </html>
