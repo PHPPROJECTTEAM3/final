@@ -49,6 +49,21 @@ and open the template in the editor.
     </head>
 
 </head>
+<script type="text/javascript">
+    setInterval(countFeedback, 3000);
+    function countFeedback()
+    {
+        $.ajax({
+                    url: "count_feedback.php",
+                    method: "POST",
+                    success: function (response) {
+                        console.log(response);
+                        document.getElementById("count_feedback").innerHTML = response;
+                    }
+                });
+    }
+    
+</script>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 
@@ -93,7 +108,7 @@ and open the template in the editor.
                             </li>
                             <li class="">
                                 <a href="admin_manage_feedback.php">Feedback</a>     
-                                <div style="
+                                <div id="count_feedback" style="
                                      display: inline-block;
                                      min-width: 9px;
                                      padding: 4px 4px;
@@ -133,3 +148,5 @@ and open the template in the editor.
                 <h1 style="color: #357ca5;">
                     PHPMOBILE
                 </h1>
+                
+                
