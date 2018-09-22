@@ -45,10 +45,9 @@ $rowmail = mysqli_fetch_array($resultmail);
                         <div id="error" style="color: red;"></div><div id="ok" style="color: green"></div>
                         <strong>Quý Khách Quan Tâm Về: </strong>
                         <select class="fed" name="txttheme" id="txttheme">
-                            <option>Chọn chủ đề</option>
+                            <option>Tư Vấn</option>
                             <option>Khiếu Nại-Phản Ánh</option>
                             <option>Góp Ý</option>
-                            <option>Tư Vấn</option> 
                         </select><br/>
                         <p style="border: 1px solid #09afdf;"></p>
                         <div class="form-group">
@@ -145,9 +144,9 @@ $rowmail = mysqli_fetch_array($resultmail);
     $("#feedback-form").submit(function (e) {
         e.preventDefault();
         var txttheme = $("#txttheme").val();
-		var txttitle = $("#txttitle").val();
+		var txttitle = $("#txttitle").val().trim();
                 var txtmail = $("#txtmail").val();
-                var txtcontent = $("#txtcontent").val();
+                var txtcontent = $("#txtcontent").val().trim();
                 var txtdate = $("#txtdate").val();
 		var error = $("#error");
 		var ok = $("#ok");
@@ -164,6 +163,10 @@ $rowmail = mysqli_fetch_array($resultmail);
 		// Kiểm tra nếu password rỗng thì báo lỗi
 		if (txtcontent == "") {
 			error.html("Nội dung không được để trống");
+			return false;
+		}
+                if (txttitle == "") {
+			error.html("Tiêu đề không được để trống");
 			return false;
 		}
                 if (txtcontent.length > 1000) {
