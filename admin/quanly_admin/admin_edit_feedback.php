@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
@@ -68,6 +69,13 @@ $row = mysqli_fetch_array($result);
             $result7 = mysqli_query($link, $query7);
             $col7 = mysqli_fetch_array($result7);
             ?>
-                <a href="mailto:<?php echo $col7[0] ?>?Subject=Hello" target="_blank"><strong style="position: absolute; margin-left: 49%;margin-top: -8%">Mail</strong></a> </div>
+<a href="mailto:<?php echo $col7[0] ?>?Subject=Hello" target="_blank"><strong style="position: absolute; margin-left: 48%;margin-top: -9%">Mail to Answer Feedback</strong></a> </div>
+                <p id="response" style="font-size: 18px;"></p>
+   
             <p><input name="bt_edit" type="submit" value="Edit"></p>
         </form>
+            
+              
+</body>
+</html>
+

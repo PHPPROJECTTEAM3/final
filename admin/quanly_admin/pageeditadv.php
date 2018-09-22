@@ -19,7 +19,7 @@ $col = mysqli_fetch_array($result);
         <form method="POST">
             ID: <?php echo $col['id_adv']; ?><br/>
             Name: <?php echo $col['name_adv'];?><br/>
-            Quảng Cáo: <input  name="advertise" type="file"><br/><br/>
+            Quảng Cáo: <input  name="advertise" type="file" accept="image/x-png, image/jpeg" ><br/><br/>
             
             <input type="submit" name="btnSubmit">
             <a href="Addadvertise.php">Quay về</a>

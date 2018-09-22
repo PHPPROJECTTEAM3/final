@@ -38,6 +38,7 @@ $rowmail = mysqli_fetch_array($resultmail);
                 $acc = $_SESSION["username"];
                 ?>
 
+
                 <div class="col-sm-4">
                     <p style="font-size: 25px; border-left: 5px solid #09afdf; padding-left: 3%;"><strong> PHPMobile xin hân hạnh được hỗ trợ quý khách </strong> </p>
                     <form class="fedb" method="POST" id="feedback-form">
@@ -65,7 +66,7 @@ $rowmail = mysqli_fetch_array($resultmail);
                         </div>
                         <div class="form-group">
                             <label>Ngày</label>
-                            <input  value="<?php echo date("Y-m-d - H:i:s"); ?>" readonly name="txtdate" id="txtdate"><br/>
+                            <input  value="<?php echo date("Y-m-d"); ?>" readonly name="txtdate" id="txtdate"><br/>
                         </div>
 
 
@@ -144,37 +145,37 @@ $rowmail = mysqli_fetch_array($resultmail);
     $("#feedback-form").submit(function (e) {
         e.preventDefault();
         var txttheme = $("#txttheme").val();
-        var txttitle = $("#txttitle").val();
-        var txtname = $("#txtname").val();
-        var txtmail = $("#txtmail").val();
-        var txtcontent = $("#txtcontent").val();
-        var txtdate = $("#txtdate").val();
-        var error = $("#error");
-        var ok = $("#ok");
-
-        // resert 2 thẻ div thông báo trở về rỗng mỗi khi click nút đăng nhập
-        error.html("");
-        ok.html("");
-        if (txttitle == "") {
-            error.html("Tiêu đề không được để trống");
-            return false;
-        }
-        // Kiểm tra nếu username rỗng thì báo lỗi
-        if (txtmail == "") {
-            error.html("Email không được để trống");
-            return false;
-        }
-        // Kiểm tra nếu password rỗng thì báo lỗi
-        if (txtcontent == "") {
-            error.html("Nội dung không được để trống");
-            return false;
-        }
-
+		var txttitle = $("#txttitle").val();
+                var txtmail = $("#txtmail").val();
+                var txtcontent = $("#txtcontent").val();
+                var txtdate = $("#txtdate").val();
+		var error = $("#error");
+		var ok = $("#ok");
+ 
+		// resert 2 thẻ div thông báo trở về rỗng mỗi khi click nút đăng nhập
+		error.html("");
+		ok.html("");
+ 
+		// Kiểm tra nếu username rỗng thì báo lỗi
+		if (txtmail == "") {
+			error.html("Email không được để trống");
+			return false;
+		}
+		// Kiểm tra nếu password rỗng thì báo lỗi
+		if (txtcontent == "") {
+			error.html("Nội dung không được để trống");
+			return false;
+		}
+                if (txtcontent.length > 1000) {
+                    error.html("Nội dung phải nhỏ hơn 1000 ký tự");
+                    return false;
+                }
 
         $.ajax({
             type: "POST",
             url: "checkfeedback.php",
-            data: {txttheme: txttheme, txttitle: txttitle, txtname: txtname, txtmail: txtmail, txtcontent: txtcontent, txtdate: txtdate},
+            data: { txttheme : txttheme, txttitle : txttitle, txtmail : txtmail, txtcontent : txtcontent, txtdate : txtdate },
+
             dataType: "json",
             success: function (response) {
                 if (response == "1") {
