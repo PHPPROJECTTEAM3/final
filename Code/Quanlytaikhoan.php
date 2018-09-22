@@ -75,13 +75,14 @@ include_once '../PRJ_Library/connect_DB.php';
                     } else {
                         while ($col = mysqli_fetch_array($result3)) {
                             $num = mysqli_num_rows($result3);
-                            $count = 1;
+                            $count = 1;          
                             ?>
                             <table class="table table-striped">
                                 <thead>      
                                     <tr>            
                                         <td><h3 style="width: 200px">Mã Đơn Hàng: <?php echo $col[1]; ?></h3>Tình Trạng: <?php echo $col[2]; ?></td>
-                                        <td><div style="margin-top:24%;"><button  id_invoice="<?php echo $col[1]; ?>" type="button" class="btn btn-danger cancel" data-toggle="modal" data-target="#myModal">Hủy Đơn Hàng</button></div></td>
+                   
+                                        <td><div style="margin-top:24%;"><button  id_invoice="<?php echo $col[1]; ?>"  class="btn btn-danger cancel"  data-toggle="modal" data-target="#myModal">Hủy Đơn Hàng</button></div></td>
                                     </tr>
                                     <tr>
                                         <th>STT</th>
@@ -174,7 +175,15 @@ include_once '../PRJ_Library/connect_DB.php';
                                 <thead>      
                                     <tr>            
                                         <td><h3 style="width: 200px">Mã Đơn Hàng: <?php echo $col[1]; ?></h3>Tình Trạng: <?php echo $col[2]; ?></td>
-                                        <td><div style="margin-top:24%;"><button  id_invoice="<?php echo $col[1]; ?>" type="button" class="btn btn-danger cancel" data-toggle="modal" data-target="#myModal">Hủy Đơn Hàng</button></div></td>
+                                           <?php 
+                                        $style ="";
+                                        if($col[2] == 'Đã Hủy')
+                                        {
+                                             $style = "style='display:none;'";
+                                            
+                                        }
+                                        ?>
+                                        <td><div style="margin-top:24%;"><button  id_invoice="<?php echo $col[1]; ?>"  <?php echo $style;?> class="btn btn-danger cancel" data-toggle="modal" data-target="#myModal">Hủy Đơn Hàng</button></div></td>
                                     </tr>
                                     <tr>
                                         <th>STT</th>
