@@ -140,7 +140,7 @@ and open the template in the editor.
                                          ?>
                                 </div>
                             </li>
-                            <li class="">
+                            <li class="" style="margin-top: -9%;">
                                 <a href="admin_manage_feedback.php">Feedback</a>     
                                 <div id="count_feedback" style="
                                      display: inline-block;
