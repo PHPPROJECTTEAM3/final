@@ -34,11 +34,11 @@ $activeMenu = "";
 
             <center><table border="2">
                 <tr>
-                    <th style="width: 2%">ID</th>
-                    <th style="width: 20%">Account Name</th>
+                    <th style="width: 2%; text-align: center;">ID</th>
+                    <th style="width: 20%; text-align: center;">Account Name</th>
                    
-                    <th style="width: 20%">Role</th>
-                    <th colspan="2" style="text-align: center">Action</th>
+                    <th style="width: 20%; text-align: center;">Role</th>
+                    <th colspan="2" style="text-align: center;">Action</th>
                 </tr>
                 <?php
                 $query = "SELECT * FROM `admin`";
@@ -52,9 +52,16 @@ $activeMenu = "";
                 {
                 echo '<tr>';
                 echo "<td><center>$col[id]</center></td>";
-                echo "<td><center>$col[acc]</center></td>";
-                
-                echo "<td><center>$col[role]</center></td>";
+                echo "<td><center>$col[acc]</center></td>"; ?>  
+                <td><center>
+                    <?php if($col["role"]==1){
+                    echo"Master";
+                }else{
+                    echo"staff";
+                }
+                ?>
+                </center></td>
+                    <?php
                 echo "<td><center><a href='pageeditadmin.php?id=$col[id]'>Edit</a></center></td>";
                 echo"<td><center><a href='delete_admin.php?id=$col[id]' onclick=\"javascript: return confirm('Bạn chắc chắn muốn xóa?');\">Delete</a></center></td>";
                 echo '</tr>';

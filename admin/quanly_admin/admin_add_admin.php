@@ -47,7 +47,7 @@ include_once './HeaderAdmin.php';
 <script type="text/javascript">
     $("#add-admin").submit(function (e) {
         e.preventDefault();
-        var username = $("#username").val();
+        var username = $("#username").val().trim();
         var password = $("#password").val();
         var role = $("#role").val();
 
@@ -63,6 +63,10 @@ include_once './HeaderAdmin.php';
             error.html("Tên đăng nhập không được để trống");
             return false;
         }
+        if (username.length > 10) {
+            error.html("Tên đăng nhập quá dài");
+            return false;
+        }
         // Kiểm tra nếu password rỗng thì báo lỗi
         if (password == "") {
             error.html("Mật khẩu không được để trống");
@@ -72,9 +76,6 @@ include_once './HeaderAdmin.php';
             error.html("Quyền truy cập không được để trống");
             return false;
         }
-
-
-
 
 
 

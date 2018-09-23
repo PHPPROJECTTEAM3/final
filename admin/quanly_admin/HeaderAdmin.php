@@ -54,15 +54,15 @@ and open the template in the editor.
     function countFeedback()
     {
         $.ajax({
-                    url: "count_feedback.php",
-                    method: "POST",
-                    success: function (response) {
-                        console.log(response);
-                        document.getElementById("count_feedback").innerHTML = response;
-                    }
-                });
+            url: "count_feedback.php",
+            method: "POST",
+            success: function (response) {
+                console.log(response);
+                document.getElementById("count_feedback").innerHTML = response;
+            }
+        });
     }
-    
+
 </script>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -86,14 +86,24 @@ and open the template in the editor.
                     <li class="active treeview">
                         <ul class="treeview-menu">
                             <li class="">
+                                <a style="color: white; font-size: 12p;"><?php echo $_SESSION["admin"] ?> | Chức vụ: <?php
+                                    if ($_SESSION["role"] == 1) {
+                                        echo"Master";
+                                    } else {
+                                        echo"staff";
+                                    }
+                                    ?></a>
+
+                            </li>
+                            <li class="">
                                 <a href="pageadmin.php">Sơ đồ thống kê </a>
 
                             </li>
-                            <?php if ($_SESSION['role'] == 1) { ?>
+<?php if ($_SESSION['role'] == 1) { ?>
                                 <li class="">
                                     <a href="Adduser.php">Thêm admin</a>
                                 </li>
-                            <?php } ?>
+<?php } ?>
                             <li class="">
                                 <a href="Addmember.php">Khách Hàng</a>
                             </li>
@@ -128,7 +138,7 @@ and open the template in the editor.
                                          $count = 0;
                                          $sql7 = "SELECT * FROM feed_back WHERE con_rep IS NULL";
                                          $result7 = mysqli_query($link, $sql7);
-                                         $rowcount=mysqli_num_rows($result7);
+                                         $rowcount = mysqli_num_rows($result7);
                                          echo $rowcount;
                                          ?>
                                 </div>
@@ -148,5 +158,4 @@ and open the template in the editor.
                 <h1 style="color: #357ca5;">
                     PHPMOBILE
                 </h1>
-                
-                
+

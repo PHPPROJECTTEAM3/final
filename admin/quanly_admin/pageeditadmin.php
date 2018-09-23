@@ -19,8 +19,8 @@ $col = mysqli_fetch_array($result);
             Quyền Truy Cập Hiện Tại: <?php echo $col['role']; ?><br/>
             <select class="fed" name="new_role">
                         <option>Cấp Quyền</option>
-                        <option>1</option>
-                        <option>2</option>                        
+                        <option value="1">Master</option>
+                        <option value="2">Staff</option>                        
                     </select><br/><br/>
             <input type="submit" name="btnSubmit">
             <a href="Adduser.php">Quay về</a>

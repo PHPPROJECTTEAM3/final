@@ -29,7 +29,7 @@ include_once '../PRJ_Library/header.php';
             </div>
 
             <div class="groupacc">
-                <input style="width: 93%;" type="submit" class="btn"  id="btn_submit" name="btn_submit" value="Đổi mật khẩu">
+                <input style="width: 93%;" type="submit" class="btnacc"  id="btn_submit" name="btn_submit" value="Đổi mật khẩu">
                 <input type="hidden" id="email" name="email" value="<?= $_GET["email"] ?>">
             </div>
             <div class="hr"></div>

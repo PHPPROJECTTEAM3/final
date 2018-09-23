@@ -717,13 +717,25 @@ include_once '../PRJ_Library/connect_DB.php';
                         if (isset($_SESSION["username"])) {
                             ?>
                             <div id="logout" style="padding-top: 4%;">
-                                <i class="glyphicon glyphicon-user" style="font-size: 18px; color:#f1f5f7 !important;"></i>
-                                <a href="quanlytaikhoan.php" style="padding-left: 8%; color: white;  font-size: 14px;">
+                                <i class="glyphicon glyphicon-user" style="font-size: 18px; margin-left: -15%; color:#f1f5f7 !important;"></i>
+                                <a href="../Code/Thongtintaikhoan.php" style="margin-left: -10%; color: white;  font-size: 14px;">
                                     <?php
                                     echo "Chào " . $_SESSION["username"];
                                     ?>
 
                                 </a>
+                                <a style="color: white;">
+                                    <?php
+                                    echo "|"
+                                    ?>
+                                </a>
+                                <a href="../Code/Quanlytaikhoan.php" style="padding-left: 2%; color: white;  font-size: 14px;">
+                                    <?php
+                                    echo "Đơn hàng";
+                                    ?>
+
+                                </a>
+                                 
                                 <a style="color: white;">
                                     <?php
                                     echo "|"

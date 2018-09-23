@@ -59,9 +59,8 @@ if($num == 0)
                     <th style="width: 18%">Mail</th>
                     <th style="width: 8%">Phone</th>
                     <th style="width: 3%">Gender</th>
-                    <th style="width: 7%">Date Of Birth</th>
-                    <th style="width: 7%">Reliability</th>
-                    <th style="width: 8%"colspan="2">Action</th>
+                    <th style="width: 10%">Date Of Birth</th>
+                    <th style="width: 3%">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -74,11 +73,9 @@ if($num == 0)
                    echo"<td><center>$col[l_name]</center></td>";
                    echo"<td><center>$col[f_name]</center></td>";
                    echo"<td><center>$col[mail]</center></td>";
-                   echo"<td><center>$col[phone]</center></td>";
+                   echo"<td><center>0$col[phone]</center></td>";
                    echo"<td><center>$col[gender]</center></td>";
                    echo"<td><center>$col[date_birth]</center></td>";
-                   echo"<td><center>$col[reliability]</center></td>";
-                   echo"<td><center><a href='pageeditmember.php?id=$col[id]'>Edit</a></center></td>";
                    echo"<td><center><a href='delete_member.php?id=$col[0]' onclick=\"javascript: return confirm('Bạn chắc chắn muốn xóa?');\">Delete</a></center></td>";
                     echo '</tr>';
                 }

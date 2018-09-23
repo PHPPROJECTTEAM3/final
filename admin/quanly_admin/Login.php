@@ -37,7 +37,7 @@
 
 <script type="text/javascript">
 	$("#btn_submit").on("click", function(){
-		var username = $("#username").val();
+		var username = $("#username").val().trim();
 		var password = $("#password").val();
 		var error = $("#error");
 		var ok = $("#ok");
