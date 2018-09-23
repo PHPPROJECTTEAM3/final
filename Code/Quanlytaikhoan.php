@@ -12,10 +12,9 @@ include_once '../PRJ_Library/data_product.inc';
         <div class="row">
             <div class="col-sm-3" style="padding-top: 5%;">
                 <ul style="list-style-type: none">
-                    <li><button style="margin: 10px" id="bt_invoice" class="btn btn-info">Quản lí đơn hàng</button></li>
-                     <li><button style="margin: 10px" id="bt_invoice2" class="btn btn-info">Đơn hàng đã hủy</button></li>
+                    <li><button style="margin: 10px; width:200px " id="bt_invoice" class="btn btn-info">Đơn hàng đã đặt</button></li>
+                     <li><button style="margin: 10px; width:200px " id="bt_invoice3" class="btn btn-info">Đơn hàng đã nhận</button></li>
                     <li><button style="margin: 10px; width:200px " id="bt_invoice2" class="btn btn-info">Đơn hàng đã hủy</button></li>
-
                 </ul>     
             </div>
 
@@ -363,14 +362,13 @@ include_once '../PRJ_Library/data_product.inc';
 
 <script language="javascript">
     //Hide Hóa Đơn
-    $("#initial_invoice").hide();
     $("#initial_invoice2").hide();
     $("#initial_invoice3").hide();
     // function Hóa Đơn
     $("document").ready(function () {
         $("#bt_invoice").click(function () {
             $("#initial_invoice").toggle();
-            $("#profile").hide();
+      
             $("#initial_invoice2").hide();
             $("#initial_invoice3").hide();
             $("#initial_invoice").show();
@@ -378,14 +376,14 @@ include_once '../PRJ_Library/data_product.inc';
         
         $("#bt_invoice2").click(function () {
             $("#initial_invoice2").toggle();
-            $("#profile").hide();
+         
             $("#initial_invoice").hide();
             $("#initial_invoice3").hide();
             $("#initial_invoice2").show();
         })
         $("#bt_invoice3").click(function () {
             $("#initial_invoice3").toggle();
-            $("#profile").hide();
+    
             $("#initial_invoice").hide();
             $("#initial_invoice2").hide();
             $("#initial_invoice3").show();
