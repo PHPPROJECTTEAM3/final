@@ -56,8 +56,18 @@ $col = mysqli_fetch_array($result);
                     }
                     ?>
                     <p class="price2"><strong>Giá: <?php echo $price ?>₫</strong></p><br/><br/>
-                    <p> <a style="text-decoration: none; width: 210px;" href="<?php echo "addproduct.php?ID=$col[0]" ?>" class="buy_now">Thêm Vào Giỏ Hàng</a></p>
-
+                    <?php 
+                    if($col[8]=='Hết Hàng')
+                    {
+                        ?>
+                    <p><button style="width: 210px;  color: #fff;;" class="btn btn-warning" >Hết Hàng</button></p>
+                    <?php
+                    }
+                    if($col[8]=='Còn Hàng')
+                    {
+                    ?>
+                    <p><button id="id_H" id_sanpham="<?php echo $col[0] ?>" style="width: 210px;  color: #fff;;" class="btn btn-warning" >Thêm Vào Giỏ Hàng</button></p>
+                    <?php } ?>
                 </div> 
                 <div style="float: left; margin-top: 5%">
 
@@ -85,11 +95,11 @@ $col = mysqli_fetch_array($result);
 
             </div>
             <div style="margin-top: 3% ">
-                <p style="font-size: 20px">Các Sản Phẩm Khác</p>
+                <p style="font-size: 20px"><strong>Các Sản Phẩm Bạn Có Thể Quan Tâm</strong></p>
                 <div style=" width: 100%">
 
                     <?php
-                    $query2 = "SELECT * FROM `product` Where `ID` != $col[0]";
+                    $query2 = "SELECT * FROM `product` Where `ID` != $col[0] AND `status` LIKE 'Còn Hàng' ";
                     $result2 = mysqli_query($link, $query2);
                     $num2 = mysqli_num_rows($result2);
                     if ($num2 == 0) {
@@ -101,8 +111,7 @@ $col = mysqli_fetch_array($result);
                         echo "";
                         $price_search = ($col2[5] - $col[5]);
 
-                        if ($price_search < -1000000 || $price_search > 1000000) {
-
+                        if ($price_search < -1000000 || $price_search > 1000000) {                          
                             continue;
                         } else {
                             $count++;
@@ -139,7 +148,18 @@ $col = mysqli_fetch_array($result);
             </div>
         </div>
     </div>
-
+<script>
+    $(document).ready(function () {
+        $("#id_H").click(function () {
+            var id = $(this).attr("id_sanpham");
+            $.get("../Code/addproduct.php", {ID: id});
+            alert("Thêm Thành Công");
+            $.get("../Xuly/cart.php", function (data) {
+                $("#count_cart").html(data);
+            });
+        });   
+    })
+</script>
 
 
 

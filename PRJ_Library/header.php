@@ -55,38 +55,6 @@ include_once '../PRJ_Library/connect_DB.php';
                         } else {
                             $("#xemthem").css("display", "block");
                         }
-
-                    });
-
-                });
-
-
-                $("#ALL").click(function () {
-                    $("#xemthem_brand").css("display", "none");
-                    $.get("../Xuly/San_Pham.php", {page: 1}, function (data) {
-                        $("#product_H").html(data);
-                        if (data.length == 0)
-                        {
-                            $("#no_data").css("display", "block");
-                            $("#xemthem").css("display", "none");
-                        } else {
-                            $("#no_data").css("display", "none");
-                            $("#xemthem").css("display", "block");
-                        }
-                    });
-
-                    var page_H = 1;
-                    $("#xemthem").click(function () {
-                        page_H += 1;
-                        $.get("../Xuly/San_Pham.php", {page: 1}, function (data) {
-                        $("#product_H").html(data);
-                            if (data.length == 0)
-                            {
-                                $("#xemthem").css("display", "none");
-                            } else {
-                                $("#xemthem").css("display", "block");
-                            }
-                        });
                     });
                 });
             });
@@ -254,49 +222,18 @@ include_once '../PRJ_Library/connect_DB.php';
 
                 //San pham bán chạy
                 $("#SPBC").click(function () {
+                    $("#xemthem_brand").css("display", "none");
+                    $("#xemthem").css("display", "none");
                     if (brand_ss != null)
                     {
                         $.get("../Xuly/San_Pham.php", {page: 1, brand: brand_ss, SPBC: "h"}, function (data) {
                             $("#product_H").html(data);
-                            if (data.length == 0)
-                            {
-                                $("#no_data").css("display", "block");
-                                $("#xemthem_brand").css("display", "none");
-                            } else {
-                                $("#no_data").css("display", "none");
-                                $("#xemthem_brand").css("display", "block");
-                            }
                         });
                     }
                     if (brand_ss == null)
                     {
-                        $("#xemthem").css("display", "none");
                         $.get("../Xuly/San_Pham.php", {page: 1, SPBC: "h"}, function (data) {
                             $("#product_H").html(data);
-                            if (data.length == 0)
-                            {
-                                $("#no_data").css("display", "block");
-                                $("#xemthem_brand").css("display", "none");
-                            } else {
-                                $("#no_data").css("display", "none");
-                                $("#xemthem_brand").css("display", "block");
-                            }
-
-                        });
-                        var page_H = 1;
-
-                        $("#xemthem_brand").click(function () {
-                            page_H += 1;
-
-                            $.get("../Xuly/San_Pham.php", {page: page_H, SPBC: "h"}, function (data) {
-                                $("#product_H").append(data);
-                                if (data.length == 0)
-                                {
-                                    $("#xemthem_brand").css("display", "none");
-                                } else {
-                                    $("#xemthem_brand").css("display", "block");
-                                }
-                            });
                         });
                     }
                 });
@@ -396,37 +333,34 @@ include_once '../PRJ_Library/connect_DB.php';
 
 
 
-//                // Hiện thị mặc định
-//                $("#ALL").click(function () {
-//                    $("#xemthem").css("display", "none");
-//                    $("#xemthem_brand").css("display", "none");
-//                    
-//                    brand_ss = null;
-//                    alert(brand_ss);
-//                    $.get("../Xuly/San_Pham.php", {page: 1}, function (data) {
-//                        $("#product_H").html(data);
-//                        if (data.length == 0)
-//                                {
-//                                    $("#xemthem_default").css("display", "none");
-//                                } else {
-//                                    $("#xemthem_default").css("display", "block");
-//                                }
-//                    });
-//                    var page_H = 1;                  
-//                    $("#xemthem_default").click(function () {
-//                        page_H += 1;
-//
-//                        $.get("../Xuly/San_Pham.php", {page: page_H}, function (data) {
-//                            $("#product_H").append(data);
-//                            if (data.length == 0)
-//                                {
-//                                    $("#xemthem_brand").css("display", "none");
-//                                } else {
-//                                    $("#xemthem_brand").css("display", "block");
-//                                }
-//                        });
-//                    });
-//                });
+                // Hiện thị mặc định
+                $("#ALL").click(function () {
+                    $("#xemthem").css("display", "none");
+
+                    brand_ss = null;
+                    $.get("../Xuly/San_Pham.php", {page: 1}, function (data) {
+                        $("#product_H").html(data);
+                        if (data.length == 0)
+                        {
+                            $("#xemthem_brand").css("display", "none");
+                        } else {
+                            $("#xemthem_brand").css("display", "block");
+                        }
+                    });
+                    var page_H = 1;
+                    $("#xemthem_brand").click(function () {
+                        page_H += 1;
+                        $.get("../Xuly/San_Pham.php", {page: page_H}, function (data) {
+                            $("#product_H").append(data);
+                            if (data.length == 0)
+                            {
+                                $("#xemthem_brand").css("display", "none");
+                            } else {
+                                $("#xemthem_brand").css("display", "block");
+                            }
+                        });
+                    });
+                });
 
                 // Dưới 2 triệu
                 $("#duoi-2-trieu").click(function () {

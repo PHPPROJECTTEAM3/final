@@ -76,8 +76,7 @@ if($num == 0)
                    echo"<td><center>$col[mail]</center></td>";
                    echo"<td><center>$col[phone]</center></td>";
                    echo"<td><center>$col[gender]</center></td>";
-                   echo"<td><center>$col[date_birth]</center></td>";
-                   echo"<td><center>$col[reliability]</center></td>";
+                   echo"<td><center>$col[date_birth]</center></td>";                 
                    echo"<td><center><a href='pageeditmember.php?id=$col[id]'>Edit</a></center></td>";
                    echo"<td><center><a href='delete_member.php?id=$col[0]' onclick=\"javascript: return confirm('Bạn chắc chắn muốn xóa?');\">Delete</a></center></td>";
                     echo '</tr>';

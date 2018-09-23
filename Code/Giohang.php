@@ -50,7 +50,7 @@ include_once '../PRJ_Library/header.php';
                                             <img src="<?php $SP->printImg(); ?>" alt="image" class="img-responsive" width="100">
                                         </div> 
                                         <div class="col-sm-10"> 
-                                            <h4 class="nomargin" style="color: #288ad6"><?php $SP->printName(); ?></h4> 
+                                            <h4 class="nomargin" style="color: #288ad6">    <?php $SP->printName(); ?></h4> 
                                             <p><strong>Nhà Sản Xuất: <?php $SP->printBrand(); ?></strong></p> 
                                         </div> 
                                     </div> 
@@ -85,6 +85,11 @@ include_once '../PRJ_Library/header.php';
                                     $addd2 = substr_replace($addd, '.', 6, 0);
                                     $price2 = $addd2;
                                 }
+                                if ($leght2 == 9) {
+                                    $add3 = substr_replace($total_product, '.', 3, 0);
+                                    $add4 = substr_replace($add3, '.', 7, 0);
+                                    $price2 = $add4;
+                                }
                                 ?>
                                 <td data-th="Subtotal" class="text-center" style="color: #c1000c " ><strong><?php echo $price2 ?>₫</strong></td> 
 
@@ -99,10 +104,10 @@ include_once '../PRJ_Library/header.php';
                         <tr>
                             <td><label><h3>Ghi Chú</h3></label><br/>
                                 <textarea style="resize:none;" name="note_cus" maxlength="500" rows="5" cols="100"><?php
-                        if (isset($_SESSION["note"])) {
-                            echo $_SESSION["note"];
-                        }
-                        ?></textarea></td>
+                                    if (isset($_SESSION["note"])) {
+                                        echo $_SESSION["note"];
+                                    }
+                                    ?></textarea></td>
                         </tr>
 
                         <tr> 
@@ -126,6 +131,11 @@ include_once '../PRJ_Library/header.php';
                                 $adddd2 = substr_replace($adddd, '.', 6, 0);
                                 $price3 = $adddd2;
                             }
+                             if ($leght3 == 9) {
+                                    $addd3 = substr_replace($total_invoice, '.', 3, 0);
+                                    $addd4 = substr_replace($addd3, '.', 7, 0);
+                                    $price3 = $addd4;
+                                }
                             ?>
                             <td class="hidden-xs text-center" style="color: #c1000c;"><strong><?php echo $price3 ?>đ</strong><input type="hidden" name="total_invoice" value="<?php echo $total_invoice ?>">
                             </td> 
@@ -167,10 +177,10 @@ if (isset($_GET["check_DatHang"])) {
     if ($_GET["check_DatHang"] == 4) {
         ?>
         <script>
-            alert('Đặt Hàng Thất Bại !!!\n\Đơn Hàng Đặt Online Không Được Vượt Quá 50 Triệu Và 3 Sản Phẩm');
+            alert('Đặt Hàng Thất Bại !!!\n\Đơn Hàng Đặt Online Không Được Vượt Quá 100 Triệu Và 10 Sản Phẩm');
             var r = confirm("Xem Chính Sách Đặt Hàng");
             if (r == true) {
-                window.location = "Home.php";
+                window.location = "chinhsachmuahang.php";
             }
         </script>
         <?php

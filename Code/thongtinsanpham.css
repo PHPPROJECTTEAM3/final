@@ -1,20 +1,4 @@
-.buy_now {
-    display: block;
-    overflow: hidden;
-    padding: 7px 0;
-    border-radius: 4px;
-    font-size: 16px;
-    line-height: normal;
-    text-transform: uppercase;
-    color: #fff;
-    text-align: center;
-    background: #fd6e1d;
-    background: -webkit-gradient(linear,0% 0%,0% 100%,from(#fd6e1d),to(#f59000));
-    background: -webkit-linear-gradient(top,#f59000,#fd6e1d);
-    background: -moz-linear-gradient(top,#f59000,#fd6e1d);
-    background: -ms-linear-gradient(top,#f59000,#fd6e1d);
-    background: -o-linear-gradient(top,#f59000,#fd6e1d);
-}
+
 .price2{
     display: inline-block;
     font-size: 16px;

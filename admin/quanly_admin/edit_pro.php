@@ -10,8 +10,7 @@ include_once './HeaderAdmin.php';
         {
             
             $current_ID = $_GET["current_ID"];
-            $id_pro = $_GET["id_pro"];
-            
+                        
             $name_pro = $_GET["name_pro"];
             $brand_pro = $_GET["brand_pro"];
             
@@ -26,10 +25,10 @@ include_once './HeaderAdmin.php';
             $price_pro = $_GET["price_pro"];
             $a_s_pro = $_GET["a_s_pro"];
             $l_date_pro = $_GET["l_date_pro"];
-            
+            $status_pro = $_GET["status"];
            
             
-            $query = "UPDATE `product` SET `name`='$name_pro',`name_brand`='$brand_pro',`img`='$image_pro',`ver`='$ver_pro',`price`=$price_pro,`a_s`=$a_s_pro,`L_Date`='$l_date_pro' WHERE ID=$current_ID ";
+            $query = "UPDATE `product` SET `name`='$name_pro',`name_brand`='$brand_pro',`img`='$image_pro',`ver`='$ver_pro',`price`=$price_pro,`a_s`=$a_s_pro,`L_Date`='$l_date_pro',`status`='$status_pro' WHERE ID=$current_ID ";
             $result = mysqli_query($link, $query);
             
             if(!$result)

@@ -71,7 +71,12 @@ if (mysqli_num_rows($result3) == 0) {
             <p>Amount Sold</p>
             <input name="a_s_pro" type="number" maxlength="3" value="0">
             <p>Launch Date</p>
-            <input name="l_date_pro" type="date"><br/><br/>
+            <input name="l_date_pro" type="date">
+            <p>Status</p>
+            <select name="status_pro">
+                <option value="Còn Hàng">Còn Hàng</option>
+                <option value="Hết Hàng">Hết Hàng</option>
+            </select><br><br>
             <input class="btn btn-success" name="bt_add" type="submit"> 
 
         </form>
@@ -86,8 +91,8 @@ if (mysqli_num_rows($result3) == 0) {
             $price_pro = $_GET["price_pro"];
             $a_s_pro = $_GET["a_s_pro"];
             $l_date_pro = $_GET["l_date_pro"];
-
-            $query4 = "INSERT INTO `product`(`ID`, `name`, `name_brand`, `img`, `ver`, `price`, `a_s`, `L_Date`) VALUES ('$id_pro','$name_pro','$brand_pro','$image_pro','$ver_pro',$price_pro,$a_s_pro,'$l_date_pro')";
+            $status_pro = $_GET["status_pro"];
+            $query4 = "INSERT INTO `product`(`ID`, `name`, `name_brand`, `img`, `ver`, `price`, `a_s`, `L_Date`,`status`) VALUES ('$id_pro','$name_pro','$brand_pro','$image_pro','$ver_pro',$price_pro,$a_s_pro,'$l_date_pro','$status_pro')";
             $result4 = mysqli_query($link, $query4);
 
             if (!($result4)) {
