@@ -123,8 +123,7 @@ var chartMember = new CanvasJS.Chart("chartMember", {
       },axisY:{
         title: "Số Lượng"
       },     
-	data: [{
-		
+	data: [{		
 		dataPoints: <?php echo json_encode($dataMember, JSON_NUMERIC_CHECK); ?>
 	}]
 });

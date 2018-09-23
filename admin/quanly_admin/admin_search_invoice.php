@@ -1,75 +1,38 @@
+
 <?php
 session_start();
 if (!(isset($_SESSION["admin"]) && isset($_SESSION["role"]))) {
     header("location:Login.php");
     exit();
 }
-include_once './HeaderAdmin.php';
 include_once '../../PRJ_Library/connect_DB.php';
-$query = "SELECT * FROM `invoice`";
-$result = mysqli_query($link, $query);
-?>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-        <script src="../jquery-latest.js" type="text/javascript"></script>
-        <script src="../jquery.tablesorter.js" type="text/javascript"></script>
-        <link href="../blue/style.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script>
-    $(document).ready(function () {
-        
-        $("#id_search").keyup(function () {
-            var id_search = $(this).val();
-            $.get("admin_search_invoice.php", {id_search: id_search}, function (data) {
-                $("#myTable").html(data);
 
-            });
-        });
-        $("#acc_search").keyup(function () {
-            var name_search = $(this).val();
-            $.get("admin_search_invoice.php", {acc_search: name_search}, function (data) {
-                $("#myTable").html(data);
-            });
-            $()
-        });
-    });
-</script>
-    </head>
-    <body class="margin5px">
-
-        <h2>Invoice List</h2>
-        <div style="overflow: hidden">
-            <div style="float: left"> 
-                <a href="Addproduct.php" style="text-decoration: none" >Back to Manage Product</a>
-            </div>
-            <div style="float: right; margin-right: 20px">
-                <a href="admin_log_out.php" style="text-decoration: none;">Log Out</a>
-            </div> 
-        </div>
-        <hr/>
-        <form>
-            <p><input class="btn btn-info active" name="manage_statistical" type="submit" value="Manage Statistical"></p>
-            ID Invoice: <input id="id_search" type="number" value="0" style="margin-right: 50px"> 
-            Account: <input id="acc_search" type="text" />
-        </form>
-        
-<?php
-if (isset($_GET["manage_statistical"])) 
-    {
-    header("location:admin_manage_statistical.php");
-    mysqli_close($link);
-    exit();
+if (!(isset($_GET["id_search"])) && !(isset($_GET["acc_search"])))
+{
+    die("ID or Name of Product not exist !!!");
 }
-if (isset($_GET["bt_search"])) {
+if (isset($_GET["id_search"])) {
     $id_search = $_GET["id_search"];
     $query = "SELECT * FROM `invoice` WHERE `ID` = $id_search";
-    $result = mysqli_query($link, $query);
-    echo "<a href='admin_manage_invoice.php'>Refesh</a>";
+    
+    if ($_GET["id_search"] == NULL) {
+        die("Enter ID");
+    }
+    if (isset($_GET["acc_search"])) {
+        unset($_GET["acc_search"]);
+    }
 }
+
+if (isset($_GET["acc_search"])) {
+    $acc_search = $_GET["acc_search"];
+    $query = "SELECT * FROM `invoice` WHERE `ac_name` LIKE '%$acc_search%'";
+    if (isset($_GET["id_search"])) {
+        unset($_GET["id_search"]);
+    }
+}
+$result = mysqli_query($link, $query);
 ?>
-        <table id="myTable" class="tablesorter"> 
+<table id="myTable" class="tablesorter"> 
             <thead> 
                 <tr> 
                     <th style="width: 4%">ID</th>
@@ -159,19 +122,3 @@ if (mysqli_num_rows($result) == 0) {
                 ?>
             </tbody> 
         </table> 
-
-
-        <script type="text/javascript">
-            $(document).ready(function ()
-            {
-                $("#myTable").tablesorter();
-
-            }
-            );
-        </script>
-<?php
-mysqli_close($link);
-exit();
-?>
-    </body>
-</html>

@@ -16,26 +16,6 @@ if (!(isset($_SESSION["username"]))) {
     exit();
 }
 date_default_timezone_set("Asia/Ho_Chi_Minh");
-//$query6 = "SELECT * FROM `cancel_invoice` WHERE `Member` like '".$_SESSION["username"]."' ORDER BY `cancel_invoice`.`Date_Request` DESC";
-//$result6 = mysqli_query($link, $query6);
-//$countt = 0;
-//
-//
-//$date_now = date("Y-m-d");
-//$check = 0;
-//while ($countt != 3) {
-//    $col6 = mysqli_fetch_array($result6);
-//    $date = new DateTime("$col6[4]");
-//    $date_cancel = $date->format("Y-m-d");
-//    if ($date_cancel == $date_now) {
-//        $check++;
-//    }
-//    $countt++;
-//}
-//if ($check == 3) {
-//    header("location:Giohang.php?check_DatHang=9");
-//    exit();
-//}
 
 
 $quantity_pro3 = 0;
@@ -59,22 +39,11 @@ if ($col[3] == NULL || $col[4] == NULL || $col[6] == NULL || $col[7] == NULL || 
     header("location:Giohang.php?check_DatHang=2");
     exit();
 }
-if ($col[9] == 'Yếu') {
-    header("location:Giohang.php?check_DatHang=3");
-    exit();
-}
-if ($col[9] == 'Trung Bình') {
-    if ($total_price3 > 50000000 || $total_quantity3 > 3) {
+if ($total_price3 > 100000000 || $total_quantity3 > 10) {
         header("location:Giohang.php?check_DatHang=4");
         exit();
     }
-}
-if ($col[9] == 'Tốt') {
-    if ($total_price3 > 60000000 || $total_quantity3 > 4) {
-        header("location:Giohang.php?check_DatHang=5");
-        exit();
-    }
-}
+
 $query5 = "SELECT `ID`,`status` FROM `invoice` WHERE `ac_name` like '$acc_name' ORDER BY `date_or` DESC";
 $result5 = mysqli_query($link, $query5);
 
@@ -90,7 +59,7 @@ if ($num2 != 0) {
 $date_or = date("Y-m-d H:i:s");
 $dateor = date("Y-m-d");
 $date = new DateTime("$dateor");
-$date->modify("+2 day");
+$date->modify("+7 day");
 $es_date_re = $date->format("Y-m-d");
 $total_invoice = NULL;
 

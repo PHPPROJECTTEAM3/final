@@ -43,7 +43,7 @@ if (isset($_GET["brand"])) {
         $query = "SELECT * FROM `product` WHERE `name_brand` like '" . $_GET["brand"] . "' AND `price` > 13000000 ORDER BY `product`.`price` DESC LIMIT $start, $limit";
     }
     if (isset($_GET["SPBC"])) {
-        $query = "SELECT * FROM `product` WHERE `name_brand` like '" . $_GET["brand"] . "' ORDER BY `a_s` DESC LIMIT $start, $limit";
+        $query = "SELECT * FROM `product` WHERE `name_brand` like '" . $_GET["brand"] . "' ORDER BY `a_s` DESC LIMIT 0, 5";
     }
     if (isset($_GET["GTD"])) {
         $query = "SELECT * FROM `product` WHERE `name_brand` like '" . $_GET["brand"] . "' ORDER BY `product`.`price` ASC LIMIT $start, $limit";
@@ -72,7 +72,7 @@ if (!isset($_GET["brand"])) {
         $query = "SELECT * FROM `product` WHERE `price` > 13000000 ORDER BY `product`.`price` DESC LIMIT $start, $limit";
     }
     if (isset($_GET["SPBC"])) {
-        $query = "SELECT * FROM `product` ORDER BY `a_s` DESC LIMIT $start, $limit";
+        $query = "SELECT * FROM `product` ORDER BY `a_s` DESC LIMIT  0, 10";
     }
     if (isset($_GET["GTD"])) {
         $query = "SELECT * FROM `product` ORDER BY `product`.`price` ASC LIMIT $start, $limit";
@@ -94,18 +94,24 @@ while ($col = mysqli_fetch_array($result)) {
         $col_half = "col-sm-offset-1";
     }
     ?>
-    <div  >
+    <div>
         <div  class="col-sm-2 <?= $col_half ?>">
             <div class="col-sm-12 mobile nopaddingsp" style="margin-top:5%; padding-bottom: 3%;">
                 <div class="phone">
                     <img width="120px" height="150px" src="<?php echo "../Images/$col[2]/$col[img]"; ?>"/>
-                    <div class="overlay"><!--hover xem chi tiet-->
+                    <?php
+                    $style = "";
+                    if ($col[8] == 'Hết Hàng') {
+                        $style = "style='display:none;'";
+                    }
+                    ?>
+                    <div   class="overlay"><!--hover xem chi tiet-->
                         <a href="<?php echo "Thongtinsanpham.php?ID=$col[0]" ?>" class="detailsmb">
                             <i class="fa fa-eye"></i>
                         </a><br/>
                         <?php
-                        echo "<div class='id_H' id_sanpham='$col[0]'>";
-                        echo "<div class='detailsmb' >";
+                        echo "<div class='id_H' id_sanpham='$col[0]' $style>";
+                        echo "<div class='detailsmb'>";
                         echo "<i class='glyphicon glyphicon-shopping-cart'></i>";
                         echo "</div></div><br/>";
                         ?>
@@ -126,8 +132,16 @@ while ($col = mysqli_fetch_array($result)) {
                     $price = $add2;
                 }
                 ?>
-
-                <span><strong><?php echo $price ?>₫</strong></span>
+                <?php
+                if ($col[8] == 'Hết Hàng') {
+                    echo "<span><strong>Hết Hàng</strong></span>";
+                }
+                if ($col[8] == 'Còn Hàng') {
+                    ?>
+                    <span><strong><?php echo $price ?>₫</strong></span>
+                    <?php
+                }
+                ?>
             </div>
         </div>
 
@@ -148,6 +162,6 @@ while ($col = mysqli_fetch_array($result)) {
                 $("#count_cart").html(data);
             });
         });
-       
+
     })
 </script>

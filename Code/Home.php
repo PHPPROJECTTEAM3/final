@@ -101,14 +101,12 @@ if (mysqli_num_rows($result1) == 0) {
             </div>
             <div class="col-sm-3">
                 <div class="dropdown">
-
-                    <button class="dropbtn" id="SPBC" >Sản Phẩm Bán Chạy</button>
-
+                    <button class="dropbtn" id="SPBC">Top Sản Phẩm Bán Chạy</button>
                 </div>
 
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-3" >
                 <div class="dropdown">
                     <button class="dropbtn">Sắp Xếp Theo</button>
                     <div class="dropdown-content">                                                
@@ -140,9 +138,8 @@ if (mysqli_num_rows($result1) == 0) {
     <div class="container">
         <div id="product_H" class="row">
             <!--                Hiện sản phẩm ở đây -->
-
         </div>
-        <h3 id="no_data" style="display: none">Không Có Sản Phẩm</h3>
+        <h3 id="no_data" style="display: none; text-align: center">Không Có Sản Phẩm</h3>
         <input id="xemthem" class="btn btn-primary" style="width: 20%; text-align: center; margin-left: 40%;" value="Xem Thêm" type="button">
         <input id="xemthem_brand" class="btn btn-primary" style="width: 20%; text-align: center; margin-left: 40%;" value="Xem Thêm" type="button">
     </div>

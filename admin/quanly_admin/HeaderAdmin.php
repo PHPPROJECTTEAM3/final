@@ -115,6 +115,30 @@ and open the template in the editor.
                             </li>
                             <li class="">
                                 <a href="admin_manage_invoice.php">Đơn Hàng</a>
+                                <div id="count_feedback2" style="
+                                     display: inline-block;
+                                     min-width: 9px;
+                                     padding: 4px 4px;
+                                     font-size: 10px;
+                                     font-weight: 400;
+                                     line-height: 1;
+                                     color: #fff;
+                                     text-align: center;
+                                     white-space: nowrap;
+                                     vertical-align: middle;
+                                     background-color: #09afdf;
+                                     border-radius: 7px;
+                                     margin-left: 35%;
+                                     margin-top: -30%;
+                                     ">
+                                         <?php
+                                         $count_H = 0;
+                                         $sql_H = "SELECT `status` FROM `invoice` WHERE `status` LIKE 'Chờ Xác Nhận'";
+                                         $result_H = mysqli_query($link, $sql_H);
+                                         $rowcount_H=mysqli_num_rows($result_H);
+                                         echo $rowcount_H;
+                                         ?>
+                                </div>
                             </li>
                             <li class="">
                                 <a href="admin_manage_feedback.php">Feedback</a>     

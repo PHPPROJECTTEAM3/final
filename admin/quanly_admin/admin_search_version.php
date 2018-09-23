@@ -12,7 +12,7 @@ if (isset($_GET["version_search"])) {
 }
 if (!isset($_GET["version_search"]))
 {
-    die("Version Not Exist Yet !!!");
+    die("Version Not Exist !!!");
 }
 ?>
 

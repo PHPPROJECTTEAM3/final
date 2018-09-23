@@ -90,11 +90,12 @@ $result = mysqli_query($link, $query);
             <th style="width: 4%">ID</th>
             <th >Name</th>
             <th >Brand</th>
-            <th >Image</th>
+            <th>Image</th>
             <th >Version</th>
-            <th >Price (VND)</th>
-            <th >Quantity Sold</th>
-            <th >Launch Date</th>
+            <th style="width: 9%" >Price (VND)</th>
+            <th style="width: 10%">Quantity Sold</th>
+            <th style="width: 9%" >Launch Date</th>
+            <th>Status</th>
             <th colspan="2">....</th>
         </tr>
     </thead> 
@@ -131,6 +132,8 @@ while ($row = mysqli_fetch_array($result)) {
     echo "<td><center>$price</center></td>";
     echo "<td><center>$row[6]</center></td>";
     echo "<td><center>$row[7]</center></td>";
+    echo "<td><center>$row[8]</center></td>";
+
     echo "<td><center><a href='admin_edit_product.php?id=$row[0]'>Edit</a></center></td>";
     echo "<td><center><a href='admin_delete_product.php?id=$row[0]' onclick=\"javascript: return confirm('Are you sure?');\">Delete</a></center></td>";
     echo "</tr>";
