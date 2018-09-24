@@ -167,13 +167,7 @@ if (isset($_GET["check_DatHang"])) {
         </script>
         <?php
     }
-    if ($_GET["check_DatHang"] == 3) {
-        ?>
-        <script>
-            alert('Đặt Hàng Thất Bại !!!\n\Bạn Không Đủ Điều Kiện Để Đặt Hàng\n\Vui Lòng Liên Hệ SĐT: 028312345 - 0909090909 hoặc Email:phpmobile@gmail.com Để Được Giải Đáp');
-        </script>
-        <?php
-    }
+  
     if ($_GET["check_DatHang"] == 4) {
         ?>
         <script>
@@ -186,17 +180,7 @@ if (isset($_GET["check_DatHang"])) {
         <?php
     }
 
-    if ($_GET["check_DatHang"] == 5) {
-        ?>
-        <script>
-            alert('Đặt Hàng Thất Bại !!!\n\Đơn Hàng Của Khách Hàng Thân Thiết Đặt Online Không Được Vượt Quá 60 Triệu Và 4 Sản Phẩm');
-            var r = confirm("Xem Chính Sách Đặt Hàng");
-            if (r == true) {
-                window.location = "Home.php";
-            }
-        </script>
-        <?php
-    }
+  
     if ($_GET["check_DatHang"] == 6) {
         ?>
         <script>

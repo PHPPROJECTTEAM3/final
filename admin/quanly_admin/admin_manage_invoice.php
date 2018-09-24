@@ -17,59 +17,69 @@ $result = mysqli_query($link, $query);
         <script src="../jquery.tablesorter.js" type="text/javascript"></script>
         <link href="../blue/style.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script>
-    $(document).ready(function () {
-        
-        $("#id_search").keyup(function () {
-            var id_search = $(this).val();
-            $.get("admin_search_invoice.php", {id_search: id_search}, function (data) {
-                $("#myTable").html(data);
+        <script>
+            $(document).ready(function () {
 
+                $("#id_search").keyup(function () {
+                    var id_search = $(this).val();
+                    $.get("admin_search_invoice.php", {id_search: id_search}, function (data) {
+                        $("#myTable").html(data);
+
+                    });
+                });
+                $("#acc_search").keyup(function () {
+                    var name_search = $(this).val();
+                    $.get("admin_search_invoice.php", {acc_search: name_search}, function (data) {
+                        $("#myTable").html(data);
+                    });
+                    $()
+                });
             });
-        });
-        $("#acc_search").keyup(function () {
-            var name_search = $(this).val();
-            $.get("admin_search_invoice.php", {acc_search: name_search}, function (data) {
-                $("#myTable").html(data);
-            });
-            $()
-        });
-    });
-</script>
+        </script>
     </head>
     <body class="margin5px">
 
         <h2>Invoice List</h2>
         <div style="overflow: hidden">
-            <div style="float: left"> 
-                <a href="Addproduct.php" style="text-decoration: none" >Back to Manage Product</a>
-            </div>
+            
             <div style="float: right; margin-right: 20px">
                 <a href="admin_log_out.php" style="text-decoration: none;">Log Out</a>
             </div> 
         </div>
         <hr/>
         <form>
-            <p><input class="btn btn-info active" name="manage_statistical" type="submit" value="Manage Statistical"></p>
+            <p><input style="margin-right: 50px"  class="btn btn-info active" name="manage_statistical" type="submit" value="Statistical">
+                <input class="btn btn-info active" name="manage_cancel_Invoice" type="submit" value="Manage Cancel Invoice"></p>
             ID Invoice: <input id="id_search" type="number" value="0" style="margin-right: 50px"> 
-            Account: <input id="acc_search" type="text" />
+            Account: <input id="acc_search" type="text" style="margin-right: 50px" />
+            <input class="btn btn-default" name="bt_refesh" type="submit" value="Refesh">
+            <button id="Print" style="float: right;" class="btn btn-default"><span class="glyphicon glyphicon-print"></span></button>
         </form>
-        
-<?php
-if (isset($_GET["manage_statistical"])) 
-    {
-    header("location:admin_manage_statistical.php");
-    mysqli_close($link);
-    exit();
-}
-if (isset($_GET["bt_search"])) {
-    $id_search = $_GET["id_search"];
-    $query = "SELECT * FROM `invoice` WHERE `ID` = $id_search";
-    $result = mysqli_query($link, $query);
-    echo "<a href='admin_manage_invoice.php'>Refesh</a>";
-}
-?>
-        <table id="myTable" class="tablesorter"> 
+
+        <?php
+        if (isset($_GET["manage_statistical"])) {
+            header("location:admin_manage_statistical.php");
+            mysqli_close($link);
+            exit();
+        }
+        if (isset($_GET["manage_cancel_Invoice"])) {
+            header("location:admin_manage_cancel_Invoice.php");
+            mysqli_close($link);
+            exit();
+        }
+        if (isset($_GET["bt_refesh"])) {
+            header("location:admin_manage_invoice.php");
+            mysqli_close($link);
+            exit();
+        }
+        if (isset($_GET["bt_search"])) {
+            $id_search = $_GET["id_search"];
+            $query = "SELECT * FROM `invoice` WHERE `ID` = $id_search";
+            $result = mysqli_query($link, $query);
+            echo "<a href='admin_manage_invoice.php'>Refesh</a>";
+        }
+        ?>
+        <table id="myTable" border="1" class="tablesorter"> 
             <thead> 
                 <tr> 
                     <th style="width: 4%">ID</th>
@@ -140,10 +150,9 @@ if (mysqli_num_rows($result) == 0) {
                     $query3 = "SELECT SUM(`total`) FROM `detail_invoice` WHERE `ID_Invoice`= $row[0]";
                     $result3 = mysqli_query($link, $query3);
                     $num3 = mysqli_num_rows($result3);
-                    if ($num3==0) {
+                    if ($num3 == 0) {
                         echo "<tr><td><h4>Update Total Invoice Faile</h4><td><tr>";
-                    }
-                    else {
+                    } else {
                         $row2 = mysqli_fetch_array($result3);
                         $total_update = $row2[0];
                         if ($total_update == NULL) {
@@ -166,8 +175,19 @@ if (mysqli_num_rows($result) == 0) {
             {
                 $("#myTable").tablesorter();
 
+                $('#Print').click(function () {
+                    PrintElem();
+                });
             }
             );
+            function PrintElem()
+            {
+                var divToPrint = document.getElementById("myTable");
+                newWin = window.open("");
+                newWin.document.write(divToPrint.outerHTML);
+                newWin.print();
+                newWin.close();
+            }
         </script>
 <?php
 mysqli_close($link);

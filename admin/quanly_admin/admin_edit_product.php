@@ -80,8 +80,8 @@ $query3 = "SELECT `ver_code` FROM `version`";
     </select>
     <p>Price</p>
     <input name="price_pro" type="number" maxlength="9" min="500000" value="<?php echo $row[5] ?>" required>
-    <p>Amount Sold</p>
-    <input name="a_s_pro" type="number" maxlength="3" value="<?php echo $row[6] ?>">
+    <p>Quantity Sold</p>
+    <input name="a_s_pro" type="number" maxlength="5" value="<?php echo $row[6] ?>" required>
     <p>Launch Date</p>
     <input name="l_date_pro" type="date" value="<?php echo $row[7] ?>">
     <p>Status</p>
@@ -95,7 +95,7 @@ $query3 = "SELECT `ver_code` FROM `version`";
             echo"<option value='Còn Hàng'>Còn Hàng</option>";
         }
         ?>
-    </select>
+    </select><br/><br/>
     <input class="btn btn-success" name="edit_pro" type="submit" value="Edit"> 
 
 </form>

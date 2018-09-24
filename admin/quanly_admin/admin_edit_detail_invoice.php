@@ -40,7 +40,7 @@ $col = mysqli_fetch_array($result);
  <form method="GET">
      <p>ID Product : <?php echo $col[0] ?></p>
      <p>Name Product : <?php echo $col[1] ?></p> 
-    <p><input name="quantity_edit" type="number" value="<?php echo $col[2] ?>" required max="3" min="1"  ></p>
+    <p>Quantity: <input name="quantity_edit" type="number" value="<?php echo $col[2] ?>" required max="10" min="1"  ></p>
     <input type="submit" name="bt_edit" value="Edit" class="btn btn-success">   
     <input name="id_pro" type="hidden" value="<?php echo $col[0] ?>">
     <input name="price_pro" type="hidden" value="<?php echo $col[3] ?>">
@@ -48,13 +48,13 @@ $col = mysqli_fetch_array($result);
  
  
   <?php 
+  
 if(isset($_GET["bt_edit"]))
 {    
    $price_pro = $_GET["price_pro"];
     $quantity_edit = $_GET["quantity_edit"];
     $total = ($price_pro*$quantity_edit);
-    $id_pro = $_GET["id_pro"];
-    
+    $id_pro = $_GET["id_pro"];   
     $query2 = "UPDATE `detail_invoice` SET `Quantity_pro`=$quantity_edit, `total`=$total WHERE `ID_Invoice` = $invoice AND `ID_Pro` = $id_pro   ";
     $result2 = mysqli_query($link, $query2);
     if($result2)

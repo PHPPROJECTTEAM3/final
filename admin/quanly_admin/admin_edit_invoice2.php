@@ -33,6 +33,9 @@ if (isset($_GET["bt_edit_invoice"])) {
     if ($status != 'Đã Nhận Hàng') {
         $date_re = NULL;
     }
+     if ($status != 'Đã Hủy') {
+        $date_re = NULL;
+    }
 
     if ($date_re == NULL) {
 
@@ -43,7 +46,7 @@ if (isset($_GET["bt_edit_invoice"])) {
         $result = mysqli_query($link, $query);
     }
 
-echo $query;
+
     if ($result) {
         header("location:admin_manage_invoice.php");
         exit();

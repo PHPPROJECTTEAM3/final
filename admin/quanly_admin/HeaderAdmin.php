@@ -133,14 +133,14 @@ and open the template in the editor.
                                      ">
                                          <?php
                                          $count_H = 0;
-                                         $sql_H = "SELECT `status` FROM `invoice` WHERE `status` LIKE 'Chờ Xác Nhận'";
+                                         $sql_H = "SELECT * FROM `invoice` WHERE `admin_confirm` IS NULL";
                                          $result_H = mysqli_query($link, $sql_H);
                                          $rowcount_H=mysqli_num_rows($result_H);
                                          echo $rowcount_H;
                                          ?>
                                 </div>
                             </li>
-                            <li class="">
+                            <li class="" style="margin-top: -9%;">
                                 <a href="admin_manage_feedback.php">Feedback</a>     
                                 <div id="count_feedback" style="
                                      display: inline-block;

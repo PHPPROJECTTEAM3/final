@@ -42,7 +42,7 @@ while ($col = mysqli_fetch_array($result)) {
 }
 ?>
         </select></p>
-        <p>Quantity: <input name="quantity_pro" type="number" max="3" min="1" value="1"></p>
+        <p>Quantity: <input name="quantity_pro" type="number" max="10" min="1" value="1" required></p>
         <p><input class="btn btn-success" name="bt_add" type="submit" value="Add"></p>
 </form>
             <?php

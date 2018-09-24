@@ -13,8 +13,8 @@ include_once './HeaderAdmin.php';
         <form>
             <p>Name Version</p>
             <input name="name_ver" type="text" maxlenght="30" required>
-            <p>Logo</p>
-            <input name="file_ver" type="file"><br/><br/>
+            <p>File PDF</p>
+            <input name="file_ver" type="file" required><br/><br/>
             <input class="btn btn-success" name="bt_add_pro" type="submit" value="Add">
         </form>
         <?php

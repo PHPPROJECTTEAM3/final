@@ -71,10 +71,7 @@ include_once '../PRJ_Library/data_product.inc';
                                 <td><div class="groupcntt"><label>Ngày Sinh</label>
                                         <input class="cntt" name="Dob_profile" type="date" maxlength="10" required value="<?php echo $col['date_birth']; ?>"></div></td>
                             </tr>
-                            <tr> 
-                                <td><p><strong>Mức Độ Tin Cậy:</strong> <?php echo $col['reliability'] ?></p></td>
-                            </tr>
-                            <tr>      
+                            
                                 <td><input class="btncntt" name="bt_profile" type="submit" value="Cập Nhật Thông Tin" ></td>
                             </tr>
                         </tbody>

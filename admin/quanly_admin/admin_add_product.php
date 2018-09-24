@@ -45,7 +45,7 @@ if (mysqli_num_rows($result3) == 0) {
         <hr/>
         <form>
             <p>ID</p>
-            <input name="id_pro" value="<?php echo $grater + 1 ?>" > <!-- tự động tăng khỏi nhập -->
+            <input name="id_pro" value="<?php echo $grater + 1 ?>" readonly > <!-- tự động tăng khỏi nhập -->
             <p>Product Name</p>
             <input name="name_pro" type="text" maxlength="50" required>
             <p>Brand Name</p>
@@ -68,8 +68,8 @@ if (mysqli_num_rows($result3) == 0) {
             </select>
             <p>Price</p>
             <input name="price_pro" type="number" maxlength="9" min="500000" value="500000" required>
-            <p>Amount Sold</p>
-            <input name="a_s_pro" type="number" maxlength="3" value="0">
+            <p>Quantity Sold</p>
+            <input name="a_s_pro" type="number" maxlength="5" value="0" required>
             <p>Launch Date</p>
             <input name="l_date_pro" type="date">
             <p>Status</p>
@@ -77,7 +77,7 @@ if (mysqli_num_rows($result3) == 0) {
                 <option value="Còn Hàng">Còn Hàng</option>
                 <option value="Hết Hàng">Hết Hàng</option>
             </select><br><br>
-            <input class="btn btn-success" name="bt_add" type="submit"> 
+            <input class="btn btn-success" name="bt_add" type="submit" value="Add"> 
 
         </form>
 

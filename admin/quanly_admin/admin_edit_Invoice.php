@@ -33,7 +33,7 @@ $col = mysqli_fetch_array($result);
 <hr/>   
 <form method="get" action="admin_edit_invoice2.php">
     <p>ID Invoice: <?php echo $col[0] ?> <input type="hidden" name="id_invoice" value="<?php echo $col[0] ?>"></p>
-    <p>Account: <input type="text" maxlength="15" value="<?php echo $col[1] ?>" name="account" required=""></p>
+    <p>Account: <input type="text" maxlength="15" value="<?php echo $col[1] ?>" name="account" required></p>
     <?php
     $total_product = ($col[2]);
     $leght2 = strlen($total_product);
@@ -50,6 +50,7 @@ $col = mysqli_fetch_array($result);
     }
     ?>
     <p>Price: <?php echo $price2 ?> VND</p>
+    Note
     <p><textarea name="note" maxlength="500" rows="6" cols="100"><?php echo $col[3] ?></textarea></p>
     <p>Date and Time Order: <input name="date_time_or" type="datetime" value="<?php echo $col[4] ?>" required</p>
     <p>Estimate Date Recive: <input type="date" name="es_date_re" value="<?php echo $col[5] ?>" required></p>

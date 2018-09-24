@@ -21,8 +21,7 @@ $result = mysqli_query($link, $query);
             </div>
             <hr/>   
 
-        <form
-           
+        <form   
             <p><input class="btn btn-info active" name="bt_add" type="submit" value="Add Brand"></p>
         </form>
 <?php

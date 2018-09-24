@@ -1,4 +1,4 @@
-<script src="../Lib_/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="../Lib_/jquery-z.3.1.min.js" type="text/javascript"></script>
 <?php
 include_once '../PRJ_Library/data_product.inc';
 include_once '../PRJ_Library/connect_DB.php';
@@ -31,6 +31,17 @@ foreach ($_SESSION["cartuser"] as $ID => $SP) {
 
 
 $acc_name = $_SESSION["username"];
+$dateor_cancel = date("Y-m-d");
+$query_cancel = "SELECT * FROM `cancel_invoice` WHERE `Date_Request` LIKE '%$dateor_cancel%' AND `Member` LIKE '$acc_name'";
+$result_cancel = mysqli_query($link, $query_cancel);
+$count_cancel=0;
+$num_cancel = mysqli_num_rows($result_cancel);
+if($num_cancel > 3)
+{
+     header("location:Giohang.php?check_DatHang=9");
+        exit();
+}
+
 // Kiểm tra tài khoản đã cập nhật rồi hay chưa
 $query4 = "SELECT * FROM `member` WHERE `acc` like '$acc_name'";
 $result4 = mysqli_query($link, $query4);

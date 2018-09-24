@@ -97,27 +97,7 @@ if (mysqli_num_rows($result) == 0) {
                         if ($result3 == FALSE) {
                             echo "<tr><td><h4>Delete Invoice Empty Faile</h4><td><tr>";
                         }
-                    }
-
-                    // tự động update giá sản phẩm 
-                    $query3 = "SELECT SUM(`total`) FROM `detail_invoice` WHERE `ID_Invoice`= $row[0]";
-                    $result3 = mysqli_query($link, $query3);
-                    $num3 = mysqli_num_rows($result3);
-                    if ($num3==0) {
-                        echo "<tr><td><h4>Update Total Invoice Faile</h4><td><tr>";
-                    }
-                    else {
-                        $row2 = mysqli_fetch_array($result3);
-                        $total_update = $row2[0];
-                        if ($total_update == NULL) {
-                            $total_update = 0;
-                        }
-                        $query4 = "UPDATE `invoice` SET `total`=$total_update WHERE `ID`= $row[0]";
-                        $result4 = mysqli_query($link, $query4);
-                        if ($result4 == FALSE) {
-                            echo "<tr><td><h4>Update Total Invoice Faile</h4><td><tr>";
-                        }
-                    }
+                    }             
                 }
                 ?>
             </tbody> 
