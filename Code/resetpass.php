@@ -60,6 +60,10 @@ include_once '../PRJ_Library/footer.html';
                     error.html("Mật khẩu không được để trống");
                     return false;
                 }
+               if (password_1.length < 4 ||  password_1.length > 8) {
+                    error.html("Mật khẩu 4-8 ký tự");
+                    return false;
+                }
                 // Kiểm tra nếu password rỗng thì báo lỗi
                 if (password_2 == "") {
                     error.html("Vui lòng xác nhận mật khẩu");
